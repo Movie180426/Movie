@@ -2,7 +2,7 @@
 namespace Movie.Model
 {
 	/// <summary>
-	/// article:实体类(属性说明自动提取数据库字段的描述信息)
+	/// article:实体类(属性说明自动提取数据库字段的描述信息)按时
 	/// </summary>
 	[Serializable]
 	public partial class article
