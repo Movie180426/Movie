@@ -316,7 +316,22 @@ namespace Movie.DAL
 
 		#endregion  BasicMethod
 		#region  ExtensionMethod
-
+        /// <summary>
+        /// 管理员登录
+        /// </summary>
+        public bool AdminLogin(string adminName, string password)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select count(1) from admins");
+            strSql.Append(" where uname=@adminName and pwd=@password ");
+            SqlParameter[] parameters = {
+					new SqlParameter("@adminName", SqlDbType.VarChar,255),
+                    new SqlParameter("@password", SqlDbType.VarChar,255)
+                                        };
+            parameters[0].Value = adminName;
+            parameters[1].Value = password;
+            return DbHelperSQL.Exists(strSql.ToString(), parameters);
+        }
 		#endregion  ExtensionMethod
 	}
 }
