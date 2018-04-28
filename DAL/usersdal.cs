@@ -8,9 +8,9 @@ namespace Movie.DAL
 	/// <summary>
 	/// 数据访问类:users
 	/// </summary>
-	public partial class users
+	public partial class usersdal
 	{
-		public users()
+		public usersdal()
 		{}
 		#region  BasicMethod
 

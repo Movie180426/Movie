@@ -1,0 +1,7 @@
+E:\GitProject\Movie\Model\bin\Release\Movie.Model.dll
+E:\GitProject\Movie\Model\bin\Release\Movie.Common.dll
+E:\GitProject\Movie\Model\bin\Release\OpenSmtp.dll
+E:\GitProject\Movie\Model\bin\Release\Excel.dll
+E:\GitProject\Movie\Model\bin\Release\COM.Excel.dll
+E:\GitProject\Movie\Model\obj\Release\Model.csprojResolveAssemblyReference.cache
+E:\GitProject\Movie\Model\obj\Release\Movie.Model.dll

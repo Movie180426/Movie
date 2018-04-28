@@ -1,0 +1,7 @@
+E:\GitProject\Movie\Common\bin\Release\Movie.Common.dll
+E:\GitProject\Movie\Common\bin\Release\COM.Excel.dll
+E:\GitProject\Movie\Common\bin\Release\Excel.dll
+E:\GitProject\Movie\Common\bin\Release\OpenSmtp.dll
+E:\GitProject\Movie\Common\bin\Release\OWC10Chart.dll
+E:\GitProject\Movie\Common\obj\Release\Common.csprojResolveAssemblyReference.cache
+E:\GitProject\Movie\Common\obj\Release\Movie.Common.dll

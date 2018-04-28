@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+您 Web 项目的发布/打包进程将使用此文件。您可以通过编辑此 MSBuild 文件
+来自定义该进程的行为。若要了解与此相关的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=208121。
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>E:\Debug\APP</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="Ajax/App.ashx">
+      <publishTime>04/28/2018 10:26:37</publishTime>
+    </File>
+    <File Include="bin/App.dll">
+      <publishTime>04/28/2018 12:25:53</publishTime>
+    </File>
+    <File Include="bin/COM.Excel.dll">
+      <publishTime>03/20/2013 11:32:56</publishTime>
+    </File>
+    <File Include="bin/Excel.dll">
+      <publishTime>03/20/2013 11:32:58</publishTime>
+    </File>
+    <File Include="bin/IBatisNet.Common.dll">
+      <publishTime>03/20/2013 11:32:56</publishTime>
+    </File>
+    <File Include="bin/IBatisNet.DataMapper.dll">
+      <publishTime>03/20/2013 11:33:04</publishTime>
+    </File>
+    <File Include="bin/Movie.Common.dll">
+      <publishTime>04/28/2018 12:25:50</publishTime>
+    </File>
+    <File Include="bin/Movie.DAL.dll">
+      <publishTime>04/28/2018 12:25:51</publishTime>
+    </File>
+    <File Include="bin/Movie.DBUtility.dll">
+      <publishTime>04/28/2018 12:25:50</publishTime>
+    </File>
+    <File Include="bin/Movie.Model.dll">
+      <publishTime>04/28/2018 12:25:51</publishTime>
+    </File>
+    <File Include="bin/MySql.Data.dll">
+      <publishTime>03/20/2013 11:33:00</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>01/17/2018 11:07:09</publishTime>
+    </File>
+    <File Include="bin/OpenSmtp.dll">
+      <publishTime>03/20/2013 11:33:04</publishTime>
+    </File>
+    <File Include="bin/System.Data.SQLite.dll">
+      <publishTime>03/20/2013 11:33:06</publishTime>
+    </File>
+    <File Include="css/app.css">
+      <publishTime>04/28/2018 10:21:50</publishTime>
+    </File>
+    <File Include="css/bootstrap.min.css">
+      <publishTime>04/28/2018 09:33:15</publishTime>
+    </File>
+    <File Include="css/font-awesome.min.css">
+      <publishTime>04/28/2018 09:33:15</publishTime>
+    </File>
+    <File Include="css/iconfont.css">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="css/mui.min.css">
+      <publishTime>04/28/2018 09:39:10</publishTime>
+    </File>
+    <File Include="css/nprogress.css">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="css/style.css">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="css/swiper.min.css">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="font/fontawesome-webfont.woff">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="font/iconfont.woff">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/60x60.gif">
+      <publishTime>04/28/2018 09:39:51</publishTime>
+    </File>
+    <File Include="img/ab.png">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/as.png">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/bejing.png">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/cbd.jpg">
+      <publishTime>04/28/2018 09:39:51</publishTime>
+    </File>
+    <File Include="img/ec-icon.png">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/head-bg.png">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/heart_03.png">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/iconall.png">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/iconfont-gou.png">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/iconfont-xiao1.png">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/login-1.png">
+      <publishTime>04/28/2018 09:39:51</publishTime>
+    </File>
+    <File Include="img/logo.png">
+      <publishTime>04/28/2018 09:39:51</publishTime>
+    </File>
+    <File Include="img/mall/heart_gray.png">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/mall/heart_red.png">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/mall/mall1_1.jpg">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/mall/mall1_2.jpg">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/mall/mall1_3.jpg">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/mall/mall1_4.jpg">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/mall/mall1_5.jpg">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/mall/mall1_6.jpg">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/mall/mall2_1.jpg">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/mall/mall2_2.jpg">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/mall/mall2_3.jpg">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/mall/mall3_1.jpg">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/mall/mall3_2.jpg">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/mall/mall3_3.jpg">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/mall/mall3_4.jpg">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/mall/mall3_5.jpg">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/mall/mall4_1.jpg">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/mall/mall4_2.jpg">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/mall/mall4_3.jpg">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/mall/mall5_1.jpg">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/mall/mall5_2.jpg">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/mall/mall5_3.jpg">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/mall/mall5_4.jpg">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/mall/mall5_5.jpg">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/muwu.jpg">
+      <publishTime>04/28/2018 09:39:51</publishTime>
+    </File>
+    <File Include="img/pur-bg.png">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/qrcode.png">
+      <publishTime>04/28/2018 09:39:51</publishTime>
+    </File>
+    <File Include="img/shuijiao.jpg">
+      <publishTime>04/28/2018 09:39:51</publishTime>
+    </File>
+    <File Include="img/weixin%281%29.png">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/weixin.png">
+      <publishTime>04/28/2018 09:33:16</publishTime>
+    </File>
+    <File Include="img/yuantiao.jpg">
+      <publishTime>04/28/2018 09:39:51</publishTime>
+    </File>
+    <File Include="Index.html">
+      <publishTime>04/28/2018 12:24:19</publishTime>
+    </File>
+    <File Include="js/app.js">
+      <publishTime>04/28/2018 09:33:15</publishTime>
+    </File>
+    <File Include="js/bootstrap.min.js">
+      <publishTime>04/28/2018 09:33:15</publishTime>
+    </File>
+    <File Include="js/common.js">
+      <publishTime>04/28/2018 12:23:33</publishTime>
+    </File>
+    <File Include="js/jquery.json.js">
+      <publishTime>04/28/2018 09:33:15</publishTime>
+    </File>
+    <File Include="js/jquery.min.js">
+      <publishTime>04/28/2018 09:33:15</publishTime>
+    </File>
+    <File Include="js/jquery.more.js">
+      <publishTime>04/28/2018 09:33:15</publishTime>
+    </File>
+    <File Include="js/jquery.pjax.js">
+      <publishTime>04/28/2018 09:33:15</publishTime>
+    </File>
+    <File Include="js/jquery.scrollUp.min.js">
+      <publishTime>04/28/2018 09:33:15</publishTime>
+    </File>
+    <File Include="js/jquery.swiper.min.js">
+      <publishTime>04/28/2018 09:33:15</publishTime>
+    </File>
+    <File Include="js/mui.min.js">
+      <publishTime>04/28/2018 09:44:17</publishTime>
+    </File>
+    <File Include="js/nprogress.js">
+      <publishTime>04/28/2018 09:33:15</publishTime>
+    </File>
+    <File Include="js/utils.js">
+      <publishTime>04/28/2018 09:33:15</publishTime>
+    </File>
+    <File Include="js/validform.js">
+      <publishTime>04/28/2018 09:33:15</publishTime>
+    </File>
+    <File Include="login.html">
+      <publishTime>04/28/2018 12:22:24</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>04/28/2018 12:25:54</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

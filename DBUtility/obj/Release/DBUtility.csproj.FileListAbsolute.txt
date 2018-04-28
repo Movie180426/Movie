@@ -1,0 +1,7 @@
+E:\GitProject\Movie\DBUtility\bin\Release\Movie.DBUtility.dll
+E:\GitProject\Movie\DBUtility\bin\Release\IBatisNet.Common.dll
+E:\GitProject\Movie\DBUtility\bin\Release\IBatisNet.DataMapper.dll
+E:\GitProject\Movie\DBUtility\bin\Release\MySql.Data.dll
+E:\GitProject\Movie\DBUtility\bin\Release\System.Data.SQLite.DLL
+E:\GitProject\Movie\DBUtility\obj\Release\DBUtility.csprojResolveAssemblyReference.cache
+E:\GitProject\Movie\DBUtility\obj\Release\Movie.DBUtility.dll

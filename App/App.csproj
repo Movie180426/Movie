@@ -40,6 +40,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -58,10 +62,112 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\app.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\iconfont.css" />
+    <Content Include="css\mui.min.css" />
+    <Content Include="css\nprogress.css" />
+    <Content Include="css\style.css" />
+    <Content Include="css\swiper.min.css" />
+    <Content Include="img\60x60.gif" />
+    <Content Include="img\ab.png" />
+    <Content Include="img\as.png" />
+    <Content Include="img\bejing.png" />
+    <Content Include="img\cbd.jpg" />
+    <Content Include="img\ec-icon.png" />
+    <Content Include="img\head-bg.png" />
+    <Content Include="img\heart_03.png" />
+    <Content Include="img\iconall.png" />
+    <Content Include="img\iconfont-gou.png" />
+    <Content Include="img\iconfont-xiao1.png" />
+    <Content Include="img\login-1.png" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\mall\heart_gray.png" />
+    <Content Include="img\mall\heart_red.png" />
+    <Content Include="img\mall\mall1_1.jpg" />
+    <Content Include="img\mall\mall1_2.jpg" />
+    <Content Include="img\mall\mall1_3.jpg" />
+    <Content Include="img\mall\mall1_4.jpg" />
+    <Content Include="img\mall\mall1_5.jpg" />
+    <Content Include="img\mall\mall1_6.jpg" />
+    <Content Include="img\mall\mall2_1.jpg" />
+    <Content Include="img\mall\mall2_2.jpg" />
+    <Content Include="img\mall\mall2_3.jpg" />
+    <Content Include="img\mall\mall3_1.jpg" />
+    <Content Include="img\mall\mall3_2.jpg" />
+    <Content Include="img\mall\mall3_3.jpg" />
+    <Content Include="img\mall\mall3_4.jpg" />
+    <Content Include="img\mall\mall3_5.jpg" />
+    <Content Include="img\mall\mall4_1.jpg" />
+    <Content Include="img\mall\mall4_2.jpg" />
+    <Content Include="img\mall\mall4_3.jpg" />
+    <Content Include="img\mall\mall5_1.jpg" />
+    <Content Include="img\mall\mall5_2.jpg" />
+    <Content Include="img\mall\mall5_3.jpg" />
+    <Content Include="img\mall\mall5_4.jpg" />
+    <Content Include="img\mall\mall5_5.jpg" />
+    <Content Include="img\muwu.jpg" />
+    <Content Include="img\pur-bg.png" />
+    <Content Include="img\qrcode.png" />
+    <Content Include="img\shuijiao.jpg" />
+    <Content Include="img\weixin%281%29.png" />
+    <Content Include="img\weixin.png" />
+    <Content Include="img\yuantiao.jpg" />
+    <Content Include="Index.html" />
+    <Content Include="js\app.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\common.js" />
+    <Content Include="js\jquery.json.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\jquery.more.js" />
+    <Content Include="js\jquery.pjax.js" />
+    <Content Include="js\jquery.scrollUp.min.js" />
+    <Content Include="js\jquery.swiper.min.js" />
+    <Content Include="js\mui.min.js" />
+    <Content Include="js\nprogress.js" />
+    <Content Include="js\utils.js" />
+    <Content Include="js\validform.js" />
+    <Content Include="login.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ajax\App.ashx.cs">
+      <DependentUpon>App.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="font\fontawesome-webfont.woff" />
+    <Content Include="font\iconfont.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Index\" />
+    <Folder Include="obj\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Ajax\App.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{e3d8759a-c5eb-402d-9f10-f5c6029a8d1a}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{9fe00521-3a8b-42b1-814e-585e99407b2e}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DBUtility\DBUtility.csproj">
+      <Project>{0988c62e-247f-471f-a183-db509c7a3839}</Project>
+      <Name>DBUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{53995dbb-9836-4647-ad22-865884fdeb9e}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\app.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

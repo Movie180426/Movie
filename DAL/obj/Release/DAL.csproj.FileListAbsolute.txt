@@ -1,0 +1,13 @@
+E:\GitProject\Movie\DAL\bin\Release\Movie.DAL.dll
+E:\GitProject\Movie\DAL\bin\Release\Movie.Common.dll
+E:\GitProject\Movie\DAL\bin\Release\Movie.DBUtility.dll
+E:\GitProject\Movie\DAL\bin\Release\Movie.Model.dll
+E:\GitProject\Movie\DAL\bin\Release\MySql.Data.dll
+E:\GitProject\Movie\DAL\bin\Release\OpenSmtp.dll
+E:\GitProject\Movie\DAL\bin\Release\Excel.dll
+E:\GitProject\Movie\DAL\bin\Release\COM.Excel.dll
+E:\GitProject\Movie\DAL\bin\Release\IBatisNet.DataMapper.dll
+E:\GitProject\Movie\DAL\bin\Release\IBatisNet.Common.dll
+E:\GitProject\Movie\DAL\bin\Release\System.Data.SQLite.dll
+E:\GitProject\Movie\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+E:\GitProject\Movie\DAL\obj\Release\Movie.DAL.dll

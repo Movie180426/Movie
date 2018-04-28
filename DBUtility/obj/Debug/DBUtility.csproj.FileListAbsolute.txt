@@ -6,3 +6,11 @@ E:\MyProject\Movie\DBUtility\bin\Debug\MySql.Data.dll
 E:\MyProject\Movie\DBUtility\bin\Debug\System.Data.SQLite.DLL
 E:\MyProject\Movie\DBUtility\obj\Debug\Movie.DBUtility.dll
 E:\MyProject\Movie\DBUtility\obj\Debug\Movie.DBUtility.pdb
+E:\GitProject\Movie\DBUtility\bin\Debug\Movie.DBUtility.dll
+E:\GitProject\Movie\DBUtility\bin\Debug\Movie.DBUtility.pdb
+E:\GitProject\Movie\DBUtility\bin\Debug\IBatisNet.Common.dll
+E:\GitProject\Movie\DBUtility\bin\Debug\IBatisNet.DataMapper.dll
+E:\GitProject\Movie\DBUtility\bin\Debug\MySql.Data.dll
+E:\GitProject\Movie\DBUtility\bin\Debug\System.Data.SQLite.DLL
+E:\GitProject\Movie\DBUtility\obj\Debug\Movie.DBUtility.dll
+E:\GitProject\Movie\DBUtility\obj\Debug\Movie.DBUtility.pdb

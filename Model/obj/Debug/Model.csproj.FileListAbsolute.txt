@@ -1,0 +1,14 @@
+E:\MyProject\Movie\Model\bin\Debug\Movie.Model.dll
+E:\MyProject\Movie\Model\bin\Debug\Movie.Model.pdb
+E:\MyProject\Movie\Model\obj\Debug\Movie.Model.dll
+E:\MyProject\Movie\Model\obj\Debug\Movie.Model.pdb
+E:\GitProject\Movie\Model\bin\Debug\Movie.Model.dll
+E:\GitProject\Movie\Model\bin\Debug\Movie.Model.pdb
+E:\GitProject\Movie\Model\bin\Debug\Movie.Common.dll
+E:\GitProject\Movie\Model\bin\Debug\OpenSmtp.dll
+E:\GitProject\Movie\Model\bin\Debug\Excel.dll
+E:\GitProject\Movie\Model\bin\Debug\COM.Excel.dll
+E:\GitProject\Movie\Model\bin\Debug\Movie.Common.pdb
+E:\GitProject\Movie\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+E:\GitProject\Movie\Model\obj\Debug\Movie.Model.dll
+E:\GitProject\Movie\Model\obj\Debug\Movie.Model.pdb

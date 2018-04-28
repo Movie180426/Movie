@@ -6,3 +6,11 @@ E:\MyProject\Movie\Common\bin\Debug\OpenSmtp.dll
 E:\MyProject\Movie\Common\bin\Debug\OWC10Chart.dll
 E:\MyProject\Movie\Common\obj\Debug\Movie.Common.dll
 E:\MyProject\Movie\Common\obj\Debug\Movie.Common.pdb
+E:\GitProject\Movie\Common\bin\Debug\Movie.Common.dll
+E:\GitProject\Movie\Common\bin\Debug\Movie.Common.pdb
+E:\GitProject\Movie\Common\bin\Debug\COM.Excel.dll
+E:\GitProject\Movie\Common\bin\Debug\Excel.dll
+E:\GitProject\Movie\Common\bin\Debug\OpenSmtp.dll
+E:\GitProject\Movie\Common\bin\Debug\OWC10Chart.dll
+E:\GitProject\Movie\Common\obj\Debug\Movie.Common.dll
+E:\GitProject\Movie\Common\obj\Debug\Movie.Common.pdb
