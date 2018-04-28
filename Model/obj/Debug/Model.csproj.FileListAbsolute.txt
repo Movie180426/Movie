@@ -12,3 +12,13 @@ E:\GitProject\Movie\Model\bin\Debug\Movie.Common.pdb
 E:\GitProject\Movie\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 E:\GitProject\Movie\Model\obj\Debug\Movie.Model.dll
 E:\GitProject\Movie\Model\obj\Debug\Movie.Model.pdb
+D:\workspace\WorkSelf\Movie\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+D:\workspace\WorkSelf\Movie\Model\obj\Debug\Movie.Model.dll
+D:\workspace\WorkSelf\Movie\Model\obj\Debug\Movie.Model.pdb
+D:\workspace\WorkSelf\Movie\Model\bin\Debug\Movie.Model.dll
+D:\workspace\WorkSelf\Movie\Model\bin\Debug\Movie.Model.pdb
+D:\workspace\WorkSelf\Movie\Model\bin\Debug\Movie.Common.dll
+D:\workspace\WorkSelf\Movie\Model\bin\Debug\OpenSmtp.dll
+D:\workspace\WorkSelf\Movie\Model\bin\Debug\Excel.dll
+D:\workspace\WorkSelf\Movie\Model\bin\Debug\COM.Excel.dll
+D:\workspace\WorkSelf\Movie\Model\bin\Debug\Movie.Common.pdb

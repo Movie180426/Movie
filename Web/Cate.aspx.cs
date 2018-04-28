@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace Movie.Web
 {
-	public partial class login : System.Web.UI.Page
-	{
-		protected void Page_Load(object sender, EventArgs e)
-		{
+    public partial class Cate : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
 
-		}
-	}
+        }
+    }
 }

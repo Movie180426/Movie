@@ -14,3 +14,12 @@ E:\GitProject\Movie\DBUtility\bin\Debug\MySql.Data.dll
 E:\GitProject\Movie\DBUtility\bin\Debug\System.Data.SQLite.DLL
 E:\GitProject\Movie\DBUtility\obj\Debug\Movie.DBUtility.dll
 E:\GitProject\Movie\DBUtility\obj\Debug\Movie.DBUtility.pdb
+D:\workspace\WorkSelf\Movie\DBUtility\bin\Debug\Movie.DBUtility.dll
+D:\workspace\WorkSelf\Movie\DBUtility\bin\Debug\Movie.DBUtility.pdb
+D:\workspace\WorkSelf\Movie\DBUtility\bin\Debug\IBatisNet.Common.dll
+D:\workspace\WorkSelf\Movie\DBUtility\bin\Debug\IBatisNet.DataMapper.dll
+D:\workspace\WorkSelf\Movie\DBUtility\bin\Debug\MySql.Data.dll
+D:\workspace\WorkSelf\Movie\DBUtility\bin\Debug\System.Data.SQLite.DLL
+D:\workspace\WorkSelf\Movie\DBUtility\obj\Debug\DBUtility.csprojResolveAssemblyReference.cache
+D:\workspace\WorkSelf\Movie\DBUtility\obj\Debug\Movie.DBUtility.dll
+D:\workspace\WorkSelf\Movie\DBUtility\obj\Debug\Movie.DBUtility.pdb

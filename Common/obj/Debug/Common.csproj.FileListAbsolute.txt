@@ -14,3 +14,12 @@ E:\GitProject\Movie\Common\bin\Debug\OpenSmtp.dll
 E:\GitProject\Movie\Common\bin\Debug\OWC10Chart.dll
 E:\GitProject\Movie\Common\obj\Debug\Movie.Common.dll
 E:\GitProject\Movie\Common\obj\Debug\Movie.Common.pdb
+D:\workspace\WorkSelf\Movie\Common\bin\Debug\Movie.Common.dll
+D:\workspace\WorkSelf\Movie\Common\bin\Debug\Movie.Common.pdb
+D:\workspace\WorkSelf\Movie\Common\bin\Debug\COM.Excel.dll
+D:\workspace\WorkSelf\Movie\Common\bin\Debug\Excel.dll
+D:\workspace\WorkSelf\Movie\Common\bin\Debug\OpenSmtp.dll
+D:\workspace\WorkSelf\Movie\Common\bin\Debug\OWC10Chart.dll
+D:\workspace\WorkSelf\Movie\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+D:\workspace\WorkSelf\Movie\Common\obj\Debug\Movie.Common.dll
+D:\workspace\WorkSelf\Movie\Common\obj\Debug\Movie.Common.pdb
