@@ -142,6 +142,8 @@
     <Content Include="font\iconfont.woff" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="fonts\" />
+    <Folder Include="images\" />
     <Folder Include="Index\" />
     <Folder Include="obj\" />
   </ItemGroup>
@@ -167,6 +169,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="font\mui-icons-extra.ttf" />
+    <Content Include="font\mui.ttf" />
     <None Include="Properties\PublishProfiles\app.pubxml" />
   </ItemGroup>
   <PropertyGroup>
