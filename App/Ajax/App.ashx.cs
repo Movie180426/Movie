@@ -19,6 +19,8 @@ namespace App.Ajax
 
         public articledal _articledal = new articledal();
 
+        public catedal _catedal = new catedal();
+
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "text/plain";
@@ -30,12 +32,94 @@ namespace App.Ajax
                 case "top":
                     GetTopInfo(context);
                     break;
+                case "cate":
+                    GetCateInfo(context);
+                    break;
+                case "movielist":
+                    GetMovieList(context);
+                    break;
+                case "movieinfo":
+                    GetMovieInfo(context);
+                    break;
 
-                    
+                case "commentlist":
+                    GetCommentList(context);
+                    break;
+
+                case "addscore":
+                    AddScore(context);
+                    break;
+
+
                 default:
                     //base.ProcessRequest(context);
                     break;
             }
+        }
+
+        private void AddScore(HttpContext context)
+        {
+            var article = new Movie.Model.article();
+            article.id = int.Parse(context.Request["id"] ?? "0");
+            article.score = int.Parse(context.Request["score"] ?? "0");
+            article.scorenum = int.Parse(context.Request["scorenum"] ?? "0");
+
+            var id = _articledal.GettopicMaxId();
+            var topic = new Movie.Model.topic();
+            topic.id = id + 1;
+            topic.articleid = context.Request["id"];
+            topic.usersid = context.Request["userid"];
+            topic.contents = context.Request["contents"];
+            topic.addtime = DateTime.Now.ToString("yyyy-MM-dd");
+
+            _articledal.UpdateScore(article);
+
+            _articledal.Addtopic(topic);
+            JsonResponse<dynamic> result = new JsonResponse<dynamic>();
+            result.Code = ResultStatus.Success;
+            context.Response.Write(JsonConvert.SerializeObject(result));
+            context.Response.End();
+        }
+
+        private void GetCommentList(HttpContext context)
+        {
+
+            var entity = _articledal.GetCommentList(" articleid = " + context.Request["id"] ?? "0");
+            JsonResponse<dynamic> result = new JsonResponse<dynamic>();
+            result.Data = entity;
+            result.Code = ResultStatus.Success;
+            context.Response.Write(JsonConvert.SerializeObject(result));
+            context.Response.End();
+        }
+
+        private void GetMovieInfo(HttpContext context)
+        {
+            var id = int.Parse(context.Request["id"] ?? "0");
+            var entity = _articledal.GetModel(id);
+            JsonResponse<dynamic> result = new JsonResponse<dynamic>();
+            result.Data = entity;
+            result.Code = ResultStatus.Success;
+            context.Response.Write(JsonConvert.SerializeObject(result));
+            context.Response.End();
+        }
+
+        private void GetMovieList(HttpContext context)
+        {
+            DataTable dt = _articledal.GetList(" cateid = '" + context.Request["cateid"] + "'").Tables[0];
+            JsonResponse<dynamic> result = new JsonResponse<dynamic>();
+            result.Data = dt;
+            result.Code = ResultStatus.Success;
+            context.Response.Write(JsonConvert.SerializeObject(result));
+            context.Response.End();
+        }
+        private void GetCateInfo(HttpContext context)
+        {
+            DataTable dt = _catedal.GetList("").Tables[0];
+            JsonResponse<dynamic> result = new JsonResponse<dynamic>();
+            result.Data = dt;
+            result.Code = ResultStatus.Success;
+            context.Response.Write(JsonConvert.SerializeObject(result));
+            context.Response.End();
         }
 
         private void GetTopInfo(HttpContext context)
