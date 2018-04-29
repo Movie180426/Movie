@@ -24,7 +24,7 @@
             <%
                 string id = Request["id"].ToString();
                 string str = "select * from article where id = '" + id + "'";
-                System.Data.DataTable dt = null;
+                dt = null;
                 foreach (System.Data.DataRow drX in dt.Rows)
                 {
             %>
