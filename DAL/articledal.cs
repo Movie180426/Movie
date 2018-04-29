@@ -78,6 +78,45 @@ namespace Movie.DAL
         }
 
 
+        public int GettopicMaxId()
+        {
+            return DbHelperSQL.GetMaxID("id", "topic");
+        }
+
+        /// <summary>
+		/// 增加一条数据
+		/// </summary>
+		public bool Addtopic(Movie.Model.topic model)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("insert into topic(");
+            strSql.Append("id,usersid,articleid,contents,addtime)");
+            strSql.Append(" values (");
+            strSql.Append("@SQL2012id,@SQL2012usersid,@SQL2012articleid,@SQL2012contents,@SQL2012addtime)");
+            SqlParameter[] parameters = {
+                    new SqlParameter("@SQL2012id", SqlDbType.Int,4),
+                    new SqlParameter("@SQL2012usersid", SqlDbType.VarChar,255),
+                    new SqlParameter("@SQL2012articleid", SqlDbType.VarChar,255),
+                    new SqlParameter("@SQL2012contents", SqlDbType.Text),
+                    new SqlParameter("@SQL2012addtime", SqlDbType.VarChar,255)};
+            parameters[0].Value = model.id;
+            parameters[1].Value = model.usersid;
+            parameters[2].Value = model.articleid;
+            parameters[3].Value = model.contents;
+            parameters[4].Value = model.addtime;
+
+            int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
+            if (rows > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
 
         /// <summary>
         /// 更新一条数据
@@ -131,7 +170,7 @@ namespace Movie.DAL
             StringBuilder strSql = new StringBuilder();
             strSql.Append("update article set ");
             strSql.Append("score=@score,");
-            strSql.Append("scorenum=@scorenum,");
+            strSql.Append("scorenum=@scorenum");
             strSql.Append(" where id=@id ");
             SqlParameter[] parameters = {
                     new SqlParameter("@score", SqlDbType.Int,255),
@@ -260,6 +299,21 @@ namespace Movie.DAL
                 if (row["addtime"] != null)
                 {
                     model.addtime = row["addtime"].ToString();
+                }
+
+                try
+                {
+                    if (row["score"] != null)
+                    {
+                        model.score = int.Parse(row["score"].ToString());
+                    }
+                    if (row["scorenum"] != null)
+                    {
+                        model.scorenum = int.Parse(row["scorenum"].ToString());
+                    }
+                }
+                catch (Exception e)
+                {
                 }
             }
             return model;

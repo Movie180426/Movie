@@ -101,13 +101,15 @@
 
                     if (msg.Code == 1) {
                         var data = msg.Data;
+
+                        var userid = MovieCommon.getUrlParam("userid");
                         var html = '<ul class="mui-table-view mui-table-view-chevron">';
                         if (data.length === 0) {
                             html += "暂无记录";
                         }
                         for (var i = 0; i < data.length; i++) {
                             html += ' <li class="mui-table-view-cell">';
-                            html += ' <a class="mui-navigate-right" href="Comment.html?id= ' + data[i]["id"] + '"> ' + data[i]["title"] + '</a>';
+                            html += ' <a class="mui-navigate-right" href="Comment.html?id= ' + data[i]["id"] + '&userid=' + userid + '"> ' + data[i]["title"] + '</a>';
                             html += '</li>';
                         }
                         html += '  </ul>';

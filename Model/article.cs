@@ -22,6 +22,8 @@ namespace Movie.Model
 
         public int score { get; set; }
         public int scorenum { get; set; }
+
+        public int userid { get; set; }
         /// <summary>
         /// 
         /// </summary>

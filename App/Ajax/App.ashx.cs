@@ -45,11 +45,40 @@ namespace App.Ajax
                 case "commentlist":
                     GetCommentList(context);
                     break;
-                    
+
+                case "addscore":
+                    AddScore(context);
+                    break;
+
+
                 default:
                     //base.ProcessRequest(context);
                     break;
             }
+        }
+
+        private void AddScore(HttpContext context)
+        {
+            var article = new Movie.Model.article();
+            article.id = int.Parse(context.Request["id"] ?? "0");
+            article.score = int.Parse(context.Request["score"] ?? "0");
+            article.scorenum = int.Parse(context.Request["scorenum"] ?? "0");
+
+            var id = _articledal.GettopicMaxId();
+            var topic = new Movie.Model.topic();
+            topic.id = id + 1;
+            topic.articleid = context.Request["id"];
+            topic.usersid = context.Request["userid"];
+            topic.contents = context.Request["contents"];
+            topic.addtime = DateTime.Now.ToString("yyyy-MM-dd");
+
+            _articledal.UpdateScore(article);
+
+            _articledal.Addtopic(topic);
+            JsonResponse<dynamic> result = new JsonResponse<dynamic>();
+            result.Code = ResultStatus.Success;
+            context.Response.Write(JsonConvert.SerializeObject(result));
+            context.Response.End();
         }
 
         private void GetCommentList(HttpContext context)
