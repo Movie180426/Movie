@@ -140,6 +140,7 @@
   <ItemGroup>
     <Compile Include="articledal.cs" />
     <Compile Include="catedal.cs" />
+    <Compile Include="grid.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

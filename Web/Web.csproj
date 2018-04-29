@@ -77,8 +77,23 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\editpwd.aspx" />
     <Content Include="Admin\Index.aspx" />
+    <Content Include="Admin\js\editpwd.js" />
+    <Content Include="Admin\js\listadmin.js" />
+    <Content Include="Admin\js\listarticle.js" />
+    <Content Include="Admin\js\listcate.js" />
+    <Content Include="Admin\js\listtopic.js" />
+    <Content Include="Admin\js\listuser.js" />
+    <Content Include="Admin\js\listvote.js" />
+    <Content Include="Admin\listadmin.aspx" />
+    <Content Include="Admin\listarticle.aspx" />
+    <Content Include="Admin\listcate.aspx" />
+    <Content Include="Admin\listtopic.aspx" />
+    <Content Include="Admin\listusers.aspx" />
+    <Content Include="Admin\listvote.aspx" />
     <Content Include="Admin\Login.aspx" />
+    <Content Include="Admin\User.aspx" />
     <Content Include="Cate.aspx" />
     <Content Include="context.aspx" />
     <Content Include="Contnt\img\loginbg.png" />
@@ -1515,6 +1530,13 @@
     <Compile Include="Admin\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
+    <Compile Include="Admin\editpwd.aspx.cs">
+      <DependentUpon>editpwd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\editpwd.aspx.designer.cs">
+      <DependentUpon>editpwd.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1522,12 +1544,61 @@
     <Compile Include="Admin\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\listadmin.aspx.cs">
+      <DependentUpon>listadmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\listadmin.aspx.designer.cs">
+      <DependentUpon>listadmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\listarticle.aspx.cs">
+      <DependentUpon>listarticle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\listarticle.aspx.designer.cs">
+      <DependentUpon>listarticle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\listcate.aspx.cs">
+      <DependentUpon>listcate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\listcate.aspx.designer.cs">
+      <DependentUpon>listcate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\listtopic.aspx.cs">
+      <DependentUpon>listtopic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\listtopic.aspx.designer.cs">
+      <DependentUpon>listtopic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\listusers.aspx.cs">
+      <DependentUpon>listusers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\listusers.aspx.designer.cs">
+      <DependentUpon>listusers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\listvote.aspx.cs">
+      <DependentUpon>listvote.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\listvote.aspx.designer.cs">
+      <DependentUpon>listvote.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\User.aspx.cs">
+      <DependentUpon>User.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\User.aspx.designer.cs">
+      <DependentUpon>User.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cate.aspx.cs">
       <DependentUpon>Cate.aspx</DependentUpon>
@@ -1542,6 +1613,27 @@
     </Compile>
     <Compile Include="context.aspx.designer.cs">
       <DependentUpon>context.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controler\admin.ashx.cs">
+      <DependentUpon>admin.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Controler\article.ashx.cs">
+      <DependentUpon>article.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Controler\BaseHandler.ashx.cs">
+      <DependentUpon>BaseHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Controler\cate.ashx.cs">
+      <DependentUpon>cate.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Controler\grid.ashx.cs">
+      <DependentUpon>grid.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Controler\user.ashx.cs">
+      <DependentUpon>user.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Controler\vote.ashx.cs">
+      <DependentUpon>vote.ashx</DependentUpon>
     </Compile>
     <Compile Include="Controls\CheckRight.ascx.cs">
       <DependentUpon>checkright.ascx</DependentUpon>
@@ -1675,6 +1767,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="TopicHandler.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controler\admin.ashx" />
+    <Content Include="Controler\article.ashx" />
+    <Content Include="Controler\BaseHandler.ashx" />
+    <Content Include="Controler\cate.ashx" />
+    <Content Include="Controler\grid.ashx" />
+    <Content Include="Controler\user.ashx" />
+    <Content Include="Controler\vote.ashx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
