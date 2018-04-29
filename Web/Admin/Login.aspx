@@ -19,7 +19,7 @@
         }
 
         body {
-            background: #F1F9FF url(../Contnt/img/loginbg.png) no-repeat center 0;
+            background: #F1F9FF url(../Content/img/loginbg.png) no-repeat center 0;
         }
 
         .login {
@@ -29,7 +29,7 @@
             padding-left: 224px;
             margin: 0 auto;
             margin-top: 80px;
-            background: url(../Contnt/img/login_b.png) no-repeat;
+            background: url(../Content/img/login_b.png) no-repeat;
         }
 
             .login .input_txt {
