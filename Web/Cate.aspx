@@ -14,16 +14,63 @@
 </head>
 
 <body>
-    <!--#include file="header.asp" -->
+    <div>
+        <div class="body-top">
+            <div class="content">
+                <% if (string.IsNullOrEmpty(userName))
+                   { %>
+欢迎您, <%= userName %> <% } %>
+            </div>
+        </div>
+        <div class="header">
+            <div class="logo">
+                <img src="statics/images/v9/logo.jpg" />
+            </div>
+            <div class="banner"></div>
+            <div class="bk3"></div>
+            <div class="nav-bar">
+                <map>
+                    <ul class="nav-site">
+                        <li><a href="index.aspx"><span>首页</span> </a></li>
+                        <%
+                            System.Data.DataTable dt = dalCate.GetList("").Tables[0];
+                            foreach (System.Data.DataRow drX in dt.Rows)
+                            {
+                                string sID = drX["id"].ToString();
+                        %>
+                        <li class="line">|</li>
+                        <li><a href="cate.aspx?id=<%=drX["id"] %>"><span><%= drX["catename"] %> </span>
+                        </a></li>
+                        <% } %>
+                        <% 
+                            if (userName.Trim() != "")
+                            { 
+                        %>
+                        <li class="line">|</li>
+                        <li><a href="reg.php"><span>用户注册</span> </a></li>
+                        <li class="line">|</li>
+                        <li><a href="login.php"><span>用户登录</span> </a></li>
+                        <% }
+                            else
+                            { 
+                        %>
+                        <li class="line">|</li>
+                        <li><a href="exit.aspx"><span>退出系统</span> </a></li>
+                        <%} %>
+                    </ul>
+                </map>
+            </div>
+        </div>
+    </div>
     <%
         string id = Request["id"].ToString();
         string str = "select * from cate where id = '" + id + "'";
-        System.Data.DataTable dt = null;
+        dt = dalCate.GetList(" id = '" + id + "' ").Tables[0];
         string name = "";
         foreach (System.Data.DataRow drX in dt.Rows)
         {
 
-            name = drX["name"].ToString();
+            name = drX["catename"].ToString();
         }
     %>
     <div class="main">
@@ -36,11 +83,11 @@
 
                             str = "select * from article where cateid = '" + id + "' order by id desc";
                             dt = null;
-
+                            dt = dalArticle.GetList(50, " cateid = '" + id + "' ", "id").Tables[0];
                             foreach (System.Data.DataRow drX in dt.Rows)
                             {
                         %>
-                        <li><a href="context.php?id=<%=drX["id"].ToString() %>" target="_blank"><%=drX["title"].ToString() %></a></li>
+                        <li><a href="context.aspx?id=<%=drX["id"].ToString() %>" target="_blank"><%=drX["title"].ToString() %></a></li>
                         <hr />
                         <%  } %>
                     </ul>
@@ -54,12 +101,11 @@
                 <ul class="content digg">
                     <%
                         str = "select * from article where cateid = '" + id + "' order by id desc";
-                        dt = null;
-
+                        dt = dalArticle.GetList(10, " cateid = '" + id + "' ", "id").Tables[0];
                         foreach (System.Data.DataRow drX in dt.Rows)
                         {
                     %>
-                    <li><a href="context.php?id=<%=drX["id"].ToString() %>" target="_blank"><%=drX["title"].ToString() %></a></li>
+                    <li><a href="context.aspx?id=<%=drX["id"].ToString() %>" target="_blank"><%=drX["title"].ToString() %></a></li>
                     <hr />
                     <% } %>
                 </ul>
@@ -76,6 +122,6 @@
         }
         new ChannelSlide(".channel-slide", "on", 311, 260);
     </script>
-    <!--#include file="footer.asp" -->
+   
 </body>
 </html>
