@@ -20,7 +20,7 @@
 		<link href="statics/css/reset.css" rel="stylesheet" type="text/css" />
 		<link href="statics/css/dialog_simp.css" rel="stylesheet"
 			type="text/css" />
-<script lang="javascript" type="text/javascript" src="My97DatePicker/WdatePicker.js"
+<script lang="javascript" type="text/javascript" src="statics/My97DatePicker/WdatePicker.js"
         charset="utf-8"></script>
 
 
@@ -446,7 +446,7 @@
 			<h2>
 				用户注册
 			</h2>
-			<form action="userfunc.aspx?method=save" method="post" name="myform"
+			<form action="TopicHandler.ashx?Mth=save" method="post" name="myform"
 				onsubmit="return reg();">
 				<div class="col-left form-login form-reg">
 					<!--是否开启选择会员模型选项-->

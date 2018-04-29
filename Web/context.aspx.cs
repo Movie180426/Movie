@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Movie.DAL;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -10,11 +11,16 @@ namespace Movie.Web
 {
     public partial class context : System.Web.UI.Page
     {
-        public string userName = "";
+        public Model.users user = null;
+        public DataTable dtCate = null;
+        public article dalArticle = new article();
+        public topic dalTopic = new topic();
+        public cate dalCate = new cate();
         protected void Page_Load(object sender, EventArgs e)
         {
-            userName = "David";
-           // DataTable
+            dtCate = dalCate.GetList("").Tables[0];
+            if (HttpContext.Current.Session["User"] != null)
+                user = (Model.users)(HttpContext.Current.Session["User"]);
         }
     }
 }

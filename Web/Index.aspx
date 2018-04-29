@@ -20,14 +20,15 @@
     <div>
         <div class="body-top">
             <div class="content">
-                <% if (string.IsNullOrEmpty(userName))
+                <% if (user != null)
                    { %>
-欢迎您, <%= userName %> <% } %>
+欢迎您: <%= user.uname %> <% } %>
             </div>
         </div>
         <div class="header">
             <div class="logo">
-                <img src="statics/images/v9/logo.jpg" /></div>
+                <img src="statics/images/v9/logo.jpg" />
+            </div>
             <div class="banner"></div>
             <div class="bk3"></div>
             <div class="nav-bar">
@@ -45,16 +46,16 @@
                         </a></li>
                         <% } %>
                         <% 
-                            if (userName.Trim() != "")
+                            if (user == null)
                             { 
                         %>
                         <li class="line">|</li>
-                        <li><a href="reg.php"><span>用户注册</span> </a></li>
+                        <li><a href="Register.aspx"><span>用户注册</span> </a></li>
                         <li class="line">|</li>
-                        <li><a href="login.php"><span>用户登录</span> </a></li>
+                        <li><a href="Login.aspx"><span>用户登录</span> </a></li>
                         <% }
-            else
-            { 
+                            else
+                            { 
                         %>
                         <li class="line">|</li>
                         <li><a href="exit.aspx"><span>退出系统</span> </a></li>
@@ -69,10 +70,10 @@
             <div class="news-hot">
                 <%
                     //"select * from article where istop = '是' order by id desc limit 5";
-                    dt = dtTop;
+                    dt = dalArticle.GetList(5, "  istop = '是'  ", "id").Tables[0];
                     foreach (DataRow drX in dt.Rows)
                     {
-                        string sID = drX["sName"].ToString();
+                        string sID = drX["id"].ToString();
                 %>
                 <div class="content">
                     <h4 class="blue">
@@ -80,12 +81,12 @@
                             <%= drX["title"].ToString() %>
                         </a>
                     </h4>
-                    <div class="bk20 hr">
+                    <div class="hr">
                         <hr />
                     </div>
                 </div>
                 <%
-                        }
+                    }
                 %>
             </div>
             <div class="slide">
@@ -94,10 +95,10 @@
                         <div class="changeDiv">
                             <%
                                 //select * from article where isimage = '是' order by id desc limit 5";
-                                dt = dtTop;
+                                dt = dalArticle.GetList(5, "  isimage = '是'  ", "id").Tables[0];
                                 foreach (DataRow drX in dt.Rows)
                                 {
-                                    string sID = drX["sName"].ToString();%>
+                                    string sID = drX["id"].ToString();%>
                             <a href="context.aspx?id=<%=drX["id"].ToString() %>" target="_blank"
                                 title="<%=drX["title"].ToString() %>">
                                 <img src="admin/<%=drX["image"].ToString() %>"
@@ -113,27 +114,28 @@
             </div>
             <%
                 //$str="select * from cate  order by id asc";
-                dt = dtTop;
+                dt = dtCate;
                 int i = 0;
                 foreach (DataRow drX in dt.Rows)
                 { %>
             <div class="box cat-area" <%  if (i % 2 != 0)
-                                          { %> style="margin-right: 10px" <% } %>>
+                                          { %>
+                style="margin-right: 10px" <% } %>>
                 <h5 class="title-1">
                     <%=drX["catename"].ToString() %>
-                    <a href="cate.php?id=<%= drX["id"].ToString() %>" class="more">更多>></a>
+                    <a href="cate.aspx?id=<%= drX["id"].ToString() %>" class="more">更多>></a>
                 </h5>
                 <div class="content">
                     <ul class="list lh24 f14">
                         <% 
                                           string _cate = drX["id"].ToString();
-                                          string str1 = "select * from article where cateid = '" + _cate + "' order by id desc limit 5";
-                                          DataTable art1 = dalArticle.GetList("").Tables[0];
+
+                                          DataTable art1 = dalArticle.GetList(5, " cateid = '" + _cate + "' ", "id").Tables[0];
                                           foreach (DataRow drX1 in art1.Rows)
                                           {
                         %>
                         <li>
-                            <a href="context.php?id=<%= drX1["id"].ToString() %>" target="_blank" title="">
+                            <a href="context.aspx?id=<%= drX1["id"].ToString() %>" target="_blank" title="">
                                 <%=drX1["title"].ToString() %>
                             </a>
                         </li>
@@ -142,8 +144,8 @@
                 </div>
             </div>
             <%
-                         i++;
-                     }
+                                          i++;
+                }
             %>
             <div class="bk10">
             </div>
@@ -170,14 +172,14 @@
                         <%
                             //$str="select * from article order by id desc limit 10";
                             dt = dtTop;
-
+                            dt = dalArticle.GetList(10, "", "id").Tables[0];
                             foreach (DataRow drX in dt.Rows)
                             { %>
                         <li>
-                            <a href="context.php?id=<%=drX["id"].ToString() %>>" target="_blank"><%=drX["title"].ToString() %></a>
+                            <a href="context.aspx?id=<%=drX["id"].ToString() %>>" target="_blank"><%=drX["title"].ToString() %></a>
                         </li>
                         <%
-                     }
+                            }
                         %>
                     </ul>
                 </div>
@@ -188,7 +190,7 @@
                 <h5 class="title-2">调查问卷
                 </h5>
                 <div class="tab-content">
-                    <%--<?php require 'vote.php'; ?>--%>
+                    <%--<?php require 'vote.aspx'; ?>--%>
                 </div>
             </div>
             <div class="bk10">

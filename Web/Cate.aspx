@@ -17,9 +17,9 @@
     <div>
         <div class="body-top">
             <div class="content">
-                <% if (string.IsNullOrEmpty(userName))
+              <% if (user != null)
                    { %>
-欢迎您, <%= userName %> <% } %>
+欢迎您: <%= user.uname %> <% } %>
             </div>
         </div>
         <div class="header">
@@ -41,15 +41,15 @@
                         <li class="line">|</li>
                         <li><a href="cate.aspx?id=<%=drX["id"] %>"><span><%= drX["catename"] %> </span>
                         </a></li>
-                        <% } %>
+                       <% } %>
                         <% 
-                            if (userName.Trim() != "")
+                            if (user == null)
                             { 
                         %>
                         <li class="line">|</li>
-                        <li><a href="reg.php"><span>用户注册</span> </a></li>
+                        <li><a href="Register.aspx"><span>用户注册</span> </a></li>
                         <li class="line">|</li>
-                        <li><a href="login.php"><span>用户登录</span> </a></li>
+                        <li><a href="Login.aspx"><span>用户登录</span> </a></li>
                         <% }
                             else
                             { 

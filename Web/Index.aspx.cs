@@ -11,7 +11,7 @@ namespace Movie.Web
 {
     public partial class Index : System.Web.UI.Page
     {
-        public string userName="";
+        public Model.users user = null;
         public DataTable dtCate = null;
         public DataTable dtTop = null;
         public DataTable dtImg = null;
@@ -23,7 +23,8 @@ namespace Movie.Web
            
             dtTop = dalArticle.GetList("").Tables[0];
             dtImg = dalArticle.GetList("").Tables[0];
-            userName = "David";
+            if (HttpContext.Current.Session["User"] != null)
+                user = (Model.users)(HttpContext.Current.Session["User"]);
         }
     }
 }

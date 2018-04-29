@@ -15,7 +15,54 @@
 </head>
 
 <body>
-    <!--#include file="header.aspx" -->
+    <div>
+        <div class="body-top">
+            <div class="content">
+               <% if (user != null)
+                   { %>
+欢迎您: <%= user.uname %> <% } %>
+            </div>
+        </div>
+        <div class="header">
+            <div class="logo">
+                <img src="statics/images/v9/logo.jpg" />
+            </div>
+            <div class="banner"></div>
+            <div class="bk3"></div>
+            <div class="nav-bar">
+                <map>
+                    <ul class="nav-site">
+                        <li><a href="index.aspx"><span>首页</span> </a></li>
+                        <%
+                            System.Data.DataTable dt = dtCate;
+                            foreach (System.Data.DataRow drX in dt.Rows)
+                            {
+                                string sID = drX["id"].ToString();
+                        %>
+                        <li class="line">|</li>
+                        <li><a href="cate.aspx?id=<%=drX["id"] %>"><span><%= drX["catename"] %> </span>
+                        </a></li>
+                        <% } %>
+                        <% 
+                            if (user == null)
+                            { 
+                        %>
+                        <li class="line">|</li>
+                        <li><a href="reg.aspx"><span>用户注册</span> </a></li>
+                        <li class="line">|</li>
+                        <li><a href="login.aspx"><span>用户登录</span> </a></li>
+                        <% }
+                            else
+                            { 
+                        %>
+                        <li class="line">|</li>
+                        <li><a href="exit.aspx"><span>退出系统</span> </a></li>
+                        <%} %>
+                    </ul>
+                </map>
+            </div>
+        </div>
+    </div>
     <div class="main">
         <div class="col-left">
             <div class="crumbs">
@@ -23,8 +70,7 @@
             </div>
             <%
                 string id = Request["id"].ToString();
-                string str = "select * from article where id = '" + id + "'";
-                dt = null;
+                dt = dalArticle.GetList(" id = '" + id + "' ").Tables[0];
                 foreach (System.Data.DataRow drX in dt.Rows)
                 {
             %>
@@ -48,15 +94,15 @@
                 <div class="bk15"></div>
             </div>
             <%
-                    }
+                }
             %>
             <div class="Article-Toolx">
                 <div align="left">
                     <table class="table" cellspacing="1" cellpadding="2" width="99%"
                         align="center" border="0">
                         <%
-                            str = "select * from topic where articleid = '" + id + "'";
-                            dt = null;
+                            //str = "select * from topic where articleid = '" + id + "'";
+                            dt = dalTopic.GetList(" articleid = '" + id + "' ").Tables[0];
                             foreach (System.Data.DataRow drX in dt.Rows)
                             {
                         %>
@@ -68,15 +114,16 @@
                     </table>
                 </div>
             </div>
-            <%   if (string.IsNullOrEmpty(userName))
+            <%   
+                if (user != null)
                  { %>
             <div class="Article-Toolx">
                 <div align="left">
-                    <form action="topicfunc.php" method="post">
+                    <form action="TopicHandler.ashx?Mth=InsertTopic" method="post">
                         <input type="hidden"
-                            name="usersid" value="<%=User.Identity.Name %>">" />
+                            name="usersid" value="<%=user.id %>" />
                         <input
-                            type="hidden" name="articleid" value="<%=User.Identity.Name %>" />
+                            type="hidden" name="articleid" value="<%=id %>" />
                         在线评论
                         <textarea
                             rows="" cols="" name="contents"></textarea>
@@ -130,8 +177,8 @@
                 <h5 class="title-2">点击排行</h5>
                 <ul class="content digg">
                     <%
-                        str = "select * from article order by id desc limit 10";
-                        dt = null;
+                       // str = "select * from article order by id desc limit 10";
+                        dt = dalArticle.GetList(10, "", "id").Tables[0];
                         foreach (System.Data.DataRow drX in dt.Rows)
                         {
                     %>
@@ -142,6 +189,19 @@
             </div>
         </div>
     </div>
-    <!--#include file="footer.asp" -->
+    <div class="footer">
+        <p class="info"><a href="admin/index.aspx">后台管理</a></p>
+    </div>
+
+    <script type="text/javascript">
+        $(function () {
+            $(".picbig").each(function (i) {
+                var cur = $(this).find('.img-wrap').eq(0);
+                var w = cur.width();
+                var h = cur.height();
+                $(this).find('.img-wrap img').LoadImage(true, w, h, '{IMG_PATH}msg_img/loading.gif');
+            });
+        })
+    </script>
 </body>
 </html>
