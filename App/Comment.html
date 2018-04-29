@@ -1,11 +1,141 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-	<meta charset="utf-8" />
-</head>
-<body>
 
+<head>
+    <meta charset="utf-8">
+    <title>影视评论</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!--标准mui.css-->
+    <link href="css/mui.min.css" rel="stylesheet" />
+    <!--App自定义的css-->
+    <link href="css/app.css" rel="stylesheet" />
+    <style>
+        /*----------------mui.showLoading---------------*/
+        .mui-show-loading {
+            position: fixed;
+            padding: 5px;
+            width: 120px;
+            min-height: 120px;
+            top: 45%;
+            left: 50%;
+            margin-left: -60px;
+            background: rgba(0, 0, 0, 0.6);
+            text-align: center;
+            border-radius: 5px;
+            color: #FFFFFF;
+            visibility: hidden;
+            margin: 0;
+            z-index: 2000;
+            -webkit-transition-duration: .2s;
+            transition-duration: .2s;
+            opacity: 0;
+            -webkit-transform: scale(0.9) translate(-50%, -50%);
+            transform: scale(0.9) translate(-50%, -50%);
+            -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+        }
+
+            .mui-show-loading.loading-visible {
+                opacity: 1;
+                visibility: visible;
+                -webkit-transform: scale(1) translate(-50%, -50%);
+                transform: scale(1) translate(-50%, -50%);
+            }
+
+            .mui-show-loading .mui-spinner {
+                margin-top: 24px;
+                width: 36px;
+                height: 36px;
+            }
+
+            .mui-show-loading .text {
+                line-height: 1.6;
+                font-family: -apple-system-font,"Helvetica Neue",sans-serif;
+                font-size: 14px;
+                margin: 10px 0 0;
+                color: #fff;
+            }
+
+        .mui-show-loading-mask {
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+        }
+
+        .mui-show-loading-mask-hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title"><span  name="title"></span></h1>
+    </header>
+    <div class="mui-content">
+        
+
+        <div class="mui-card">
+            <div class="mui-card-header " style="height:200px;background-color:#333"><!--mui-card-media-->
+                <div style="width:50%;float: left; ">
+                    <img name="image"  src="images/cbd.jpg" style="width:100%;height:150px;margin:20px 5px;" />
+                </div>
+                <div style="float: right;width:50%;margin:10px 15px;height:100%;padding-top:20px ">
+                    <div style="color: #808080;color:#ffffff;margin-top:10px;"><span name="title"></span></div>
+                    <div style="color: #808080;color:#ffffff;margin-top:10px;"><span name="score"></span></div>
+                </div>
+               
+            </div>
+            <div class="mui-card-content">
+                <div class="mui-card-content-inner">
+                    <p style="color: #333;" name="contents"></p>
+                </div>
+            </div>
+            <!--<div class="mui-card-footer">
+                <a class="mui-card-link">Like</a>
+                <a class="mui-card-link">Read more</a>
+            </div>-->
+        </div>
+
+
+        <div id="commentlist">
+
+        </div>
+
+        <!--<div class="mui-card">
+            <div class="mui-card-header mui-card-media">
+                <img src="../images/logo.png" />
+                <div class="mui-media-body">
+                    大佬
+                    <p>发表于 2016-06-30 15:30</p>
+                </div>
+            </div>
+            <div class="mui-card-content" style="margin:5px">
+                <p>这个电影还可以！这个电影还可以！这个电影还可以！这个电影还可以！这个电影还可以！这个电影还可以！这个电影还可以！</p>
+            </div>
+            <div class="mui-card-footer">
+               <div>☆</div>
+            </div>
+        </div>-->
+
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/mui.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/comment.js"></script>
 </body>
+<script>
+    $(function () {
+        Comment.Info.init();
+        Comment.Comment.init();
+    });
+</script>
 </html>
+

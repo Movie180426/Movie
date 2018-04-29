@@ -76,6 +76,9 @@ namespace Movie.DAL
                 return false;
             }
         }
+
+
+
         /// <summary>
         /// 更新一条数据
         /// </summary>
@@ -108,6 +111,35 @@ namespace Movie.DAL
             parameters[5].Value = model.isimage;
             parameters[6].Value = model.addtime;
             parameters[7].Value = model.id;
+
+            int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
+            if (rows > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 更新一条数据
+        /// </summary>
+        public bool UpdateScore(Movie.Model.article model)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("update article set ");
+            strSql.Append("score=@score,");
+            strSql.Append("scorenum=@scorenum,");
+            strSql.Append(" where id=@id ");
+            SqlParameter[] parameters = {
+                    new SqlParameter("@score", SqlDbType.Int,255),
+                    new SqlParameter("@scorenum", SqlDbType.Int,255),
+                    new SqlParameter("@id", SqlDbType.Int,4)};
+            parameters[0].Value = model.score;
+            parameters[1].Value = model.scorenum;
+            parameters[2].Value = model.id;
 
             int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
             if (rows > 0)
@@ -170,10 +202,10 @@ namespace Movie.DAL
         {
 
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select  top 1 id,title,cateid,image,contents,istop,isimage,addtime from article ");
-            strSql.Append(" where id=SQL2012id ");
+            strSql.Append("select  top 1 id,title,cateid,image,contents,istop,isimage,addtime,REPLACE(CONVERT(nvarchar(max),contents) ,'\\r\\n','</br>') contents1,score,scorenum  from article ");
+            strSql.Append(" where id=@SQL2012id ");
             SqlParameter[] parameters = {
-                    new SqlParameter("SQL2012id", SqlDbType.Int,4)          };
+                    new SqlParameter("@SQL2012id", SqlDbType.Int,4)          };
             parameters[0].Value = id;
 
             Movie.Model.article model = new Movie.Model.article();
@@ -343,6 +375,18 @@ namespace Movie.DAL
 
         #endregion  BasicMethod
         #region  ExtensionMethod
+
+        public DataTable GetCommentList(string strWhere)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append(@"select topic.*,users.realname from topic
+            left join  users on topic.usersid = users.id");
+            if (strWhere.Trim() != "")
+            {
+                strSql.Append(" where " + strWhere);
+            }
+            return DbHelperSQL.Query(strSql.ToString()).Tables[0];
+        }
 
         #endregion  ExtensionMethod
     }

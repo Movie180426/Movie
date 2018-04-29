@@ -35,16 +35,43 @@ namespace App.Ajax
                 case "cate":
                     GetCateInfo(context);
                     break;
-
                 case "movielist":
                     GetMovieList(context);
                     break;
+                case "movieinfo":
+                    GetMovieInfo(context);
+                    break;
 
-
+                case "commentlist":
+                    GetCommentList(context);
+                    break;
+                    
                 default:
                     //base.ProcessRequest(context);
                     break;
             }
+        }
+
+        private void GetCommentList(HttpContext context)
+        {
+
+            var entity = _articledal.GetCommentList(" articleid = " + context.Request["id"] ?? "0");
+            JsonResponse<dynamic> result = new JsonResponse<dynamic>();
+            result.Data = entity;
+            result.Code = ResultStatus.Success;
+            context.Response.Write(JsonConvert.SerializeObject(result));
+            context.Response.End();
+        }
+
+        private void GetMovieInfo(HttpContext context)
+        {
+            var id = int.Parse(context.Request["id"] ?? "0");
+            var entity = _articledal.GetModel(id);
+            JsonResponse<dynamic> result = new JsonResponse<dynamic>();
+            result.Data = entity;
+            result.Code = ResultStatus.Success;
+            context.Response.Write(JsonConvert.SerializeObject(result));
+            context.Response.End();
         }
 
         private void GetMovieList(HttpContext context)

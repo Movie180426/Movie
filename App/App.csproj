@@ -62,6 +62,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Comment.html" />
     <Content Include="css\app.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\font-awesome.min.css" />
@@ -125,6 +126,7 @@
     <Content Include="Index.html" />
     <Content Include="js\app.js" />
     <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\comment.js" />
     <Content Include="js\common.js" />
     <Content Include="js\index.js" />
     <Content Include="js\jquery.json.js" />

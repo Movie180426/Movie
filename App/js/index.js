@@ -107,7 +107,7 @@
                         }
                         for (var i = 0; i < data.length; i++) {
                             html += ' <li class="mui-table-view-cell">';
-                            html += ' <a class="mui-navigate-right" href="#"> ' + data[i]["title"] + '</a>';
+                            html += ' <a class="mui-navigate-right" href="Comment.html?id= ' + data[i]["id"] + '"> ' + data[i]["title"] + '</a>';
                             html += '</li>';
                         }
                         html += '  </ul>';
