@@ -411,6 +411,18 @@
         Index.My.init();
         Index.Home.init();
 
+        mui('.mui-bar-tab').on('tap', 'a', function (e) {
+            var lable = this.querySelector('.mui-tab-label').innerHTML;
+            if (lable == "我的") {
+                var userid = MovieCommon.getUrlParam("userid");
+                if (userid == null || userid == "") {
+                    window.location.href = "login.html";
+                    return false;
+                }
+            }
+
+        });
+
         //$("#myhome").unbind().on("click", function () {
         //    alert('');
         //});
