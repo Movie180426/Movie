@@ -9,7 +9,7 @@
         getListByPage: function (par) {
             MovieCommon.getAjax("App.ashx?type=top",
                 "json",
-                par,
+                null,
                 _u.top.callBack);
         },
         callBack: function (msg) {
@@ -51,12 +51,87 @@
 
     }
 
+    _u.home = {
+        init: function () {
+            _u.home.getCateinfo();
+
+
+        },
+        getCateinfo: function () {
+            MovieCommon.getAjax("App.ashx?type=cate",
+                "json",
+                null,
+                function (msg) {
+                    if (msg.Code == 1) {
+                        var data = msg.Data;
+                        var html = '';
+                        if (data.length === 0) {
+                            html += "暂无记录";
+                        } else {
+                            for (var i = 0; i < data.length; i++) {
+                                var ii = (i + 1);
+                                //if (i == 0) {
+                                //    html += '<a class="mui-control-item mui-active" href="#item1">';
+                                //} else {
+                                //    html += '<a class="mui-control-item" href="#item">';
+                                //}
+
+                                if (i == 0) {
+                                    html += '<a class="mui-control-item mui-active" data-type=' + data[i]["id"] + '>';
+                                } else {
+                                    html += '<a class="mui-control-item" data-type=' + data[i]["id"] + '>';
+                                }
+
+                                html += '' + data[i]["catename"] + '';
+                                html += '</a>';
+                            }
+                            html += '  </ul>';
+                        }
+                        $("#segmentedControl").html(html);
+
+                        $(".mui-control-item").unbind().click(function () {
+                            _u.home.getMovieList($(this).attr("data-type"));
+                        });
+
+                        $(".mui-control-item").click();
+                    }
+                });
+        },
+        getMovieList: function (type) {
+            MovieCommon.getAjax("App.ashx?type=movielist&cateid=" + type,
+                "json",
+                null,
+                function (msg) {
+
+                    if (msg.Code == 1) {
+                        var data = msg.Data;
+                        var html = '<ul class="mui-table-view">';
+                        if (data.length === 0) {
+                            html += "暂无记录";
+                        }
+                        for (var i = 0; i < data.length; i++) {
+                            html += ' <li class="mui-table-view-cell">';
+                            html += '' + data[i]["title"] + '';
+                            html += '</li>';
+                        }
+                        html += '  </ul>';
+                        $("#movielist").html(html);
+                    }
+                    $('#scroll').scroll({
+                        indicators: true //是否显示滚动条
+                    });
+
+                });
+        }
+    }
+
 
     if (!window.Index) {
         window.Index = {};
     }
     window.Index = {
         Top: _u.top,
-        My: _u.my
+        My: _u.my,
+        Home: _u.home
     };
 })(jQuery);

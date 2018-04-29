@@ -19,6 +19,8 @@ namespace App.Ajax
 
         public articledal _articledal = new articledal();
 
+        public catedal _catedal = new catedal();
+
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "text/plain";
@@ -30,12 +32,38 @@ namespace App.Ajax
                 case "top":
                     GetTopInfo(context);
                     break;
+                case "cate":
+                    GetCateInfo(context);
+                    break;
 
-                    
+                case "movielist":
+                    GetMovieList(context);
+                    break;
+
+
                 default:
                     //base.ProcessRequest(context);
                     break;
             }
+        }
+
+        private void GetMovieList(HttpContext context)
+        {
+            DataTable dt = _articledal.GetList(" cateid = '" + context.Request["cateid"] + "'").Tables[0];
+            JsonResponse<dynamic> result = new JsonResponse<dynamic>();
+            result.Data = dt;
+            result.Code = ResultStatus.Success;
+            context.Response.Write(JsonConvert.SerializeObject(result));
+            context.Response.End();
+        }
+        private void GetCateInfo(HttpContext context)
+        {
+            DataTable dt = _catedal.GetList("").Tables[0];
+            JsonResponse<dynamic> result = new JsonResponse<dynamic>();
+            result.Data = dt;
+            result.Code = ResultStatus.Success;
+            context.Response.Write(JsonConvert.SerializeObject(result));
+            context.Response.End();
         }
 
         private void GetTopInfo(HttpContext context)
