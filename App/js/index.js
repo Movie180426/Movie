@@ -46,7 +46,7 @@
             _u.my.getinfo();
         },
         getinfo: function () {
-            $("#username").text(MovieCommon.getUrlParam("username"));
+            $("#username").text(MovieCommon.getUrlParam("username").replace("null",""));
         }
 
     }

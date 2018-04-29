@@ -416,8 +416,15 @@
             if (lable == "我的") {
                 var userid = MovieCommon.getUrlParam("userid");
                 if (userid == null || userid == "") {
-                    window.location.href = "login.html";
-                    return false;
+                    var btnArray = ['否', '是'];
+                    mui.confirm('', '登陆', btnArray, function (e) {
+                        if (e.index == 1) {
+                            window.location.href = "login.html";
+                            return false;
+
+                        } else {
+                        }
+                    })
                 }
             }
 
