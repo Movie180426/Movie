@@ -71,6 +71,31 @@
     <Content Include="css\nprogress.css" />
     <Content Include="css\style.css" />
     <Content Include="css\swiper.min.css" />
+    <Content Include="demo\css\application.css" />
+    <Content Include="demo\css\common.css" />
+    <Content Include="demo\css\demo.css" />
+    <Content Include="demo\css\font-awesome.css" />
+    <Content Include="demo\css\normalize.css" />
+    <Content Include="demo\css\pygments.css" />
+    <Content Include="demo\img\0.png" />
+    <Content Include="demo\img\1.png" />
+    <Content Include="demo\img\2.png" />
+    <Content Include="demo\img\3.png" />
+    <Content Include="demo\img\4.png" />
+    <Content Include="demo\img\5.png" />
+    <Content Include="demo\img\cancel-custom-off.png" />
+    <Content Include="demo\img\cancel-custom-on.png" />
+    <Content Include="demo\img\cancel-off-big.png" />
+    <Content Include="demo\img\cancel-on-big.png" />
+    <Content Include="demo\img\cookie-half.png" />
+    <Content Include="demo\img\cookie-off.png" />
+    <Content Include="demo\img\cookie-on.png" />
+    <Content Include="demo\img\off.png" />
+    <Content Include="demo\img\on.png" />
+    <Content Include="demo\img\star-half-big.png" />
+    <Content Include="demo\img\star-off-big.png" />
+    <Content Include="demo\img\star-on-big.png" />
+    <Content Include="demo\js\jquery.min.js" />
     <Content Include="images\60x60.gif" />
     <Content Include="images\cbd.jpg" />
     <Content Include="images\login-1.png" />
@@ -139,6 +164,13 @@
     <Content Include="js\nprogress.js" />
     <Content Include="js\utils.js" />
     <Content Include="js\validform.js" />
+    <Content Include="lib\img\cancel-off.png" />
+    <Content Include="lib\img\cancel-on.png" />
+    <Content Include="lib\img\star-half.png" />
+    <Content Include="lib\img\star-off.png" />
+    <Content Include="lib\img\star-on.png" />
+    <Content Include="lib\jquery.raty.js" />
+    <Content Include="lib\jquery.raty.min.js" />
     <Content Include="login.html" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -182,6 +214,7 @@
     <Content Include="font\mui.ttf" />
     <Content Include="fonts\mui-icons-extra.ttf" />
     <Content Include="fonts\mui.ttf" />
+    <Content Include="demo\font\fontawesome-webfont.ttf" />
     <None Include="Properties\PublishProfiles\app.pubxml" />
   </ItemGroup>
   <PropertyGroup>

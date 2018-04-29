@@ -336,7 +336,7 @@
             <span class="mui-icon mui-icon-email"></span>
             <span class="mui-tab-label">排行榜</span>
         </a>
-        <a class="mui-tab-item" href="#tabbar-with-map">
+        <a class="mui-tab-item" href="#tabbar-with-map" id="myhome">
             <span class="mui-icon mui-icon-gear"></span>
             <span class="mui-tab-label">我的</span>
         </a>
@@ -401,24 +401,20 @@
         $('#scroll').scroll({
             indicators: true //是否显示滚动条
         });
-        //var segmentedControl = document.getElementById('segmentedControl');
-        //$('.mui-input-group').on('change', 'input', function () {
-        //    if (this.checked) {
-        //        var styleEl = document.querySelector('input[name="style"]:checked');
-        //        var colorEl = document.querySelector('input[name="color"]:checked');
-        //        if (styleEl && colorEl) {
-        //            var style = styleEl.value;
-        //            var color = colorEl.value;
-        //            segmentedControl.className = 'mui-segmented-control' + (style ? (' mui-segmented-control-' + style) : '') + ' mui-segmented-control-' + color;
-        //        }
-        //    }
-        //});
+
+
     })(mui);
 
+   
     $(function () {
         Index.Top.init();
         Index.My.init();
         Index.Home.init();
+
+        //$("#myhome").unbind().on("click", function () {
+        //    alert('');
+        //});
+
     });
 </script>
 
