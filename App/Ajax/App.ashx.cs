@@ -16,6 +16,9 @@ namespace App.Ajax
     public class App : IHttpHandler
     {
         public usersdal _users = new usersdal();
+
+        public articledal _articledal = new articledal();
+
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "text/plain";
@@ -24,10 +27,26 @@ namespace App.Ajax
                 case "login":
                     GetUerInfo(context);
                     break;
+                case "top":
+                    GetTopInfo(context);
+                    break;
+
+                    
                 default:
                     //base.ProcessRequest(context);
                     break;
             }
+        }
+
+        private void GetTopInfo(HttpContext context)
+        {
+            DataTable dt = _articledal.GetList(" istop = '是'").Tables[0];
+            JsonResponse<dynamic> result = new JsonResponse<dynamic>();
+            result.Data = dt;
+            result.Code = ResultStatus.Success;
+            context.Response.Write(JsonConvert.SerializeObject(result));
+            context.Response.End();
+
         }
 
         private void GetUerInfo(HttpContext context)
@@ -41,7 +60,7 @@ namespace App.Ajax
             if (dt.Rows.Count > 0)
             {
                 result.Code = ResultStatus.Success;
-                //result.Data = dt;
+                result.Data = dt;
             }
             else
             {

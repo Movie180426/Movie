@@ -92,11 +92,11 @@
             }
         </style>
         <header class="dis-box header-menu b-color color-whie">
-            <a class="" href="javascript:history.go(-1)">
+            <!--<a class="" href="javascript:history.go(-1)">
                 <i class="iconfont icon-jiantou" style="color: white;"></i></i>
-            </a>
+            </a>-->
             <h3 class="box-flex">登录</h3>
-            <p><a href="index.html"><i class="iconfont icon-home" style="color: white;"></i></i></a></p>
+            <!--<p><a href="index.html"><i class="iconfont icon-home" style="color: white;"></i></i></a></p>-->
         </header>
         <div class="padding-all b-color-f">
             <form id="logform" class="validforms">
@@ -128,15 +128,16 @@
     <script src="js/mui.min.js"></script>
     <script src="js/common.js"></script>
     <script>
-       
+
 
         $("#smt").click(function () {
-            MovieCommon.getAjax("/Ajax/App.ashx?type=login",
+            MovieCommon.getAjax("App.ashx?type=login",
                 "json",
                 $("#logform").serializeArray(),
                 function (msg) {
                     if (msg.Code == "1") {
-                        window.location.href = "Index.html";
+                        var data = msg.Data[0]["uname"];
+                        window.location.href = "index.html?username=" + data;
                     } else {
                         mui.toast(msg.Message);
                     }

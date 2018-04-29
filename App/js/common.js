@@ -66,7 +66,7 @@
             mui.hideLoading(function () { });//隐藏后的回调函数
         }
     };
-    _u.webapilocalhost = "";
+    _u.webapilocalhost = "/Ajax/";
     _u.getAjax = function (url, dataType, postData, callBack) {
         _u.Loading.Show();
         $.ajax({
@@ -86,9 +86,15 @@
         });
     }
 
+    _u.getUrlParam = function (name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
 
-    if (!window.OACommon) {
-        window.OACommon = {};
+
+    if (!window.MovieCommon) {
+        window.MovieCommon = {};
     }
     window.MovieCommon = _u;
 })(jQuery);
