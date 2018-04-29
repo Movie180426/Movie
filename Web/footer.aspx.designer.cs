@@ -10,6 +10,6 @@
 namespace Movie.Web {
     
     
-    public partial class login {
+    public partial class footer {
     }
 }
