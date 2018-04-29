@@ -70,11 +70,7 @@
                         } else {
                             for (var i = 0; i < data.length; i++) {
                                 var ii = (i + 1);
-                                //if (i == 0) {
-                                //    html += '<a class="mui-control-item mui-active" href="#item1">';
-                                //} else {
-                                //    html += '<a class="mui-control-item" href="#item">';
-                                //}
+
 
                                 if (i == 0) {
                                     html += '<a class="mui-control-item mui-active" data-type=' + data[i]["id"] + '>';
@@ -93,7 +89,7 @@
                             _u.home.getMovieList($(this).attr("data-type"));
                         });
 
-                        $(".mui-control-item").click();
+                        $(".mui-control-item").eq(0).click();
                     }
                 });
         },
@@ -105,13 +101,13 @@
 
                     if (msg.Code == 1) {
                         var data = msg.Data;
-                        var html = '<ul class="mui-table-view">';
+                        var html = '<ul class="mui-table-view mui-table-view-chevron">';
                         if (data.length === 0) {
                             html += "暂无记录";
                         }
                         for (var i = 0; i < data.length; i++) {
                             html += ' <li class="mui-table-view-cell">';
-                            html += '' + data[i]["title"] + '';
+                            html += ' <a class="mui-navigate-right" href="#"> ' + data[i]["title"] + '</a>';
                             html += '</li>';
                         }
                         html += '  </ul>';
