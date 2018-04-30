@@ -261,6 +261,9 @@
     <File Include="js/bootstrap.min.js">
       <publishTime>04/29/2018 09:19:52</publishTime>
     </File>
+    <File Include="js/comment.js">
+      <publishTime>04/29/2018 23:40:12</publishTime>
+    </File>
     <File Include="js/common.js">
       <publishTime>04/29/2018 09:19:52</publishTime>
     </File>
