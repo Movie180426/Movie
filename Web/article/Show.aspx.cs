@@ -29,16 +29,16 @@ namespace Movie.Web.article
 		
 	private void ShowInfo(int id)
 	{
-		Movie.BLL.article bll=new Movie.BLL.article();
-		Movie.Model.article model=bll.GetModel(id);
-		this.lblid.Text=model.id.ToString();
-		this.lbltitle.Text=model.title;
-		this.lblcateid.Text=model.cateid;
-		this.lblimage.Text=model.image;
-		this.lblcontents.Text=model.contents;
-		this.lblistop.Text=model.istop;
-		this.lblisimage.Text=model.isimage;
-		this.lbladdtime.Text=model.addtime;
+        //Movie.BLL.article bll=new Movie.BLL.article();
+        //Movie.Model.article model=bll.GetModel(id);
+        //this.lblid.Text=model.id.ToString();
+        //this.lbltitle.Text=model.title;
+        //this.lblcateid.Text=model.cateid;
+        //this.lblimage.Text=model.image;
+        //this.lblcontents.Text=model.contents;
+        //this.lblistop.Text=model.istop;
+        //this.lblisimage.Text=model.isimage;
+        //this.lbladdtime.Text=model.addtime;
 
 	}
 

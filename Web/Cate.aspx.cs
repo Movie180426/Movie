@@ -12,7 +12,7 @@ namespace Movie.Web
     {
         public Model.users user = null;
         public cate dalCate = new cate();
-        public article dalArticle = new article();
+        public Movie.DAL.article dalArticle = new Movie.DAL.article();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (HttpContext.Current.Session["User"] != null)

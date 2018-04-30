@@ -10,7 +10,7 @@
     <table id="grid">
     </table>
     <div id="dataadd" style="width: 800px; height: 500px; display: none;">
-        <form id="addform" method="post">
+        <form id="addform" method="post" enctype="multipart/form-data">
             <table class="grid">
                 <tr>
                     <td>标题：</td>
@@ -25,7 +25,7 @@
                 <tr>
                     <td>图片：</td>
                     <td>
-                        <input data-options="required:true,width:160" type="text" class="easyui-textbox" name="image" id="add_image" /></td>
+                        <input  type="file"  name="image" id="add_image" /></td>
                 </tr>
                 <tr>
                     <td>内容：</td>
@@ -54,7 +54,7 @@
 
     </div>
     <div id="dataedit" style="width: 800px; height: 500px; display: none;">
-        <form id="editform" method="post">
+        <form id="editform" method="post" enctype="multipart/form-data">
             <table class="grid">
                  <tr>
                     <td>序号：</td>
@@ -79,7 +79,7 @@
                 <tr>
                     <td>图片：</td>
                     <td>
-                        <input data-options="required:true,width:160" type="text" class="easyui-textbox" name="image" id="edit_image" /></td>
+                        <input type="file" name="image" id="edit_image" /></td>
                 </tr>
                 <tr>
                     <td>内容：</td>

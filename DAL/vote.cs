@@ -29,9 +29,9 @@ namespace Movie.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from vote");
-			strSql.Append(" where id=SQL2012id ");
+			strSql.Append(" where id=@SQL2012id ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012id", SqlDbType.Int,4)			};
+					new SqlParameter("@SQL2012id", SqlDbType.Int,4)			};
 			parameters[0].Value = id;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -47,12 +47,12 @@ namespace Movie.DAL
 			strSql.Append("insert into vote(");
 			strSql.Append("id,title,num,addtime)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012id,SQL2012title,SQL2012num,SQL2012addtime)");
+			strSql.Append("@SQL2012id,@SQL2012title,@SQL2012num,@SQL2012addtime)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012id", SqlDbType.Int,4),
-					new SqlParameter("SQL2012title", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012num", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012addtime", SqlDbType.VarChar,255)};
+					new SqlParameter("@SQL2012id", SqlDbType.Int,4),
+					new SqlParameter("@SQL2012title", SqlDbType.VarChar,255),
+					new SqlParameter("@SQL2012num", SqlDbType.VarChar,255),
+					new SqlParameter("@SQL2012addtime", SqlDbType.VarChar,255)};
 			parameters[0].Value = model.id;
 			parameters[1].Value = model.title;
 			parameters[2].Value = model.num;
@@ -75,15 +75,15 @@ namespace Movie.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update vote set ");
-			strSql.Append("title=SQL2012title,");
-			strSql.Append("num=SQL2012num,");
-			strSql.Append("addtime=SQL2012addtime");
-			strSql.Append(" where id=SQL2012id ");
+			strSql.Append("title=@SQL2012title,");
+			strSql.Append("num=@SQL2012num,");
+			strSql.Append("addtime=@SQL2012addtime");
+			strSql.Append(" where id=@SQL2012id ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012title", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012num", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012addtime", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012id", SqlDbType.Int,4)};
+					new SqlParameter("@SQL2012title", SqlDbType.VarChar,255),
+					new SqlParameter("@SQL2012num", SqlDbType.VarChar,255),
+					new SqlParameter("@SQL2012addtime", SqlDbType.VarChar,255),
+					new SqlParameter("@SQL2012id", SqlDbType.Int,4)};
 			parameters[0].Value = model.title;
 			parameters[1].Value = model.num;
 			parameters[2].Value = model.addtime;
@@ -108,9 +108,9 @@ namespace Movie.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from vote ");
-			strSql.Append(" where id=SQL2012id ");
+			strSql.Append(" where id=@SQL2012id ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012id", SqlDbType.Int,4)			};
+					new SqlParameter("@SQL2012id", SqlDbType.Int,4)			};
 			parameters[0].Value = id;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -151,9 +151,9 @@ namespace Movie.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 id,title,num,addtime from vote ");
-			strSql.Append(" where id=SQL2012id ");
+			strSql.Append(" where id=@SQL2012id ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012id", SqlDbType.Int,4)			};
+					new SqlParameter("@SQL2012id", SqlDbType.Int,4)			};
 			parameters[0].Value = id;
 
 			Movie.Model.vote model=new Movie.Model.vote();

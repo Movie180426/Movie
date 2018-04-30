@@ -29,9 +29,9 @@ namespace Movie.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select count(1) from article");
-            strSql.Append(" where id=SQL2012id ");
+            strSql.Append(" where id=@SQL2012id ");
             SqlParameter[] parameters = {
-                    new SqlParameter("SQL2012id", SqlDbType.Int,4)          };
+                    new SqlParameter("@SQL2012id", SqlDbType.Int,4)          };
             parameters[0].Value = id;
 
             return DbHelperSQL.Exists(strSql.ToString(), parameters);
@@ -47,16 +47,16 @@ namespace Movie.DAL
             strSql.Append("insert into article(");
             strSql.Append("id,title,cateid,image,contents,istop,isimage,addtime)");
             strSql.Append(" values (");
-            strSql.Append("SQL2012id,SQL2012title,SQL2012cateid,SQL2012image,SQL2012contents,SQL2012istop,SQL2012isimage,SQL2012addtime)");
+            strSql.Append("@SQL2012id,@SQL2012title,@SQL2012cateid,@SQL2012image,@SQL2012contents,@SQL2012istop,@SQL2012isimage,@SQL2012addtime)");
             SqlParameter[] parameters = {
-                    new SqlParameter("SQL2012id", SqlDbType.Int,4),
-                    new SqlParameter("SQL2012title", SqlDbType.VarChar,255),
-                    new SqlParameter("SQL2012cateid", SqlDbType.VarChar,255),
-                    new SqlParameter("SQL2012image", SqlDbType.VarChar,255),
-                    new SqlParameter("SQL2012contents", SqlDbType.Text),
-                    new SqlParameter("SQL2012istop", SqlDbType.VarChar,255),
-                    new SqlParameter("SQL2012isimage", SqlDbType.VarChar,255),
-                    new SqlParameter("SQL2012addtime", SqlDbType.VarChar,255)};
+                    new SqlParameter("@SQL2012id", SqlDbType.Int,4),
+                    new SqlParameter("@SQL2012title", SqlDbType.VarChar,255),
+                    new SqlParameter("@SQL2012cateid", SqlDbType.VarChar,255),
+                    new SqlParameter("@SQL2012image", SqlDbType.VarChar,255),
+                    new SqlParameter("@SQL2012contents", SqlDbType.Text),
+                    new SqlParameter("@SQL2012istop", SqlDbType.VarChar,255),
+                    new SqlParameter("@SQL2012isimage", SqlDbType.VarChar,255),
+                    new SqlParameter("@SQL2012addtime", SqlDbType.VarChar,255)};
             parameters[0].Value = model.id;
             parameters[1].Value = model.title;
             parameters[2].Value = model.cateid;
@@ -125,23 +125,23 @@ namespace Movie.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("update article set ");
-            strSql.Append("title=SQL2012title,");
-            strSql.Append("cateid=SQL2012cateid,");
-            strSql.Append("image=SQL2012image,");
-            strSql.Append("contents=SQL2012contents,");
-            strSql.Append("istop=SQL2012istop,");
-            strSql.Append("isimage=SQL2012isimage,");
-            strSql.Append("addtime=SQL2012addtime");
-            strSql.Append(" where id=SQL2012id ");
+            strSql.Append("title=@SQL2012title,");
+            strSql.Append("cateid=@SQL2012cateid,");
+            strSql.Append("image=@SQL2012image,");
+            strSql.Append("contents=@SQL2012contents,");
+            strSql.Append("istop=@SQL2012istop,");
+            strSql.Append("isimage=@SQL2012isimage,");
+            strSql.Append("addtime=@SQL2012addtime");
+            strSql.Append(" where id=@SQL2012id ");
             SqlParameter[] parameters = {
-                    new SqlParameter("SQL2012title", SqlDbType.VarChar,255),
-                    new SqlParameter("SQL2012cateid", SqlDbType.VarChar,255),
-                    new SqlParameter("SQL2012image", SqlDbType.VarChar,255),
-                    new SqlParameter("SQL2012contents", SqlDbType.Text),
-                    new SqlParameter("SQL2012istop", SqlDbType.VarChar,255),
-                    new SqlParameter("SQL2012isimage", SqlDbType.VarChar,255),
-                    new SqlParameter("SQL2012addtime", SqlDbType.VarChar,255),
-                    new SqlParameter("SQL2012id", SqlDbType.Int,4)};
+                    new SqlParameter("@SQL2012title", SqlDbType.VarChar,255),
+                    new SqlParameter("@SQL2012cateid", SqlDbType.VarChar,255),
+                    new SqlParameter("@SQL2012image", SqlDbType.VarChar,255),
+                    new SqlParameter("@SQL2012contents", SqlDbType.Text),
+                    new SqlParameter("@SQL2012istop", SqlDbType.VarChar,255),
+                    new SqlParameter("@SQL2012isimage", SqlDbType.VarChar,255),
+                    new SqlParameter("@SQL2012addtime", SqlDbType.VarChar,255),
+                    new SqlParameter("@SQL2012id", SqlDbType.Int,4)};
             parameters[0].Value = model.title;
             parameters[1].Value = model.cateid;
             parameters[2].Value = model.image;
@@ -199,9 +199,9 @@ namespace Movie.DAL
 
             StringBuilder strSql = new StringBuilder();
             strSql.Append("delete from article ");
-            strSql.Append(" where id=SQL2012id ");
+            strSql.Append(" where id=@SQL2012id ");
             SqlParameter[] parameters = {
-                    new SqlParameter("SQL2012id", SqlDbType.Int,4)          };
+                    new SqlParameter("@SQL2012id", SqlDbType.Int,4)          };
             parameters[0].Value = id;
 
             int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
@@ -434,12 +434,12 @@ namespace Movie.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append(@"select topic.*,users.realname from topic
-            left join  users on topic.usersid = users.id");
+            left join  users on topic.usersid = users.id ");
             if (strWhere.Trim() != "")
             {
                 strSql.Append(" where " + strWhere);
             }
-            return DbHelperSQL.Query(strSql.ToString()).Tables[0];
+            return DbHelperSQL.Query(strSql.ToString()+" order by topic.addtime desc ").Tables[0];
         }
 
         #endregion  ExtensionMethod

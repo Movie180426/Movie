@@ -30,16 +30,16 @@ namespace Movie.Web.article
 			
 	private void ShowInfo(int id)
 	{
-		Movie.BLL.article bll=new Movie.BLL.article();
-		Movie.Model.article model=bll.GetModel(id);
-		this.lblid.Text=model.id.ToString();
-		this.txttitle.Text=model.title;
-		this.txtcateid.Text=model.cateid;
-		this.txtimage.Text=model.image;
-		this.txtcontents.Text=model.contents;
-		this.txtistop.Text=model.istop;
-		this.txtisimage.Text=model.isimage;
-		this.txtaddtime.Text=model.addtime;
+        //Movie.BLL.article bll=new Movie.BLL.article();
+        //Movie.Model.article model=bll.GetModel(id);
+        //this.lblid.Text=model.id.ToString();
+        //this.txttitle.Text=model.title;
+        //this.txtcateid.Text=model.cateid;
+        //this.txtimage.Text=model.image;
+        //this.txtcontents.Text=model.contents;
+        //this.txtistop.Text=model.istop;
+        //this.txtisimage.Text=model.isimage;
+        //this.txtaddtime.Text=model.addtime;
 
 	}
 
@@ -101,7 +101,7 @@ namespace Movie.Web.article
 			model.isimage=isimage;
 			model.addtime=addtime;
 
-			Movie.BLL.article bll=new Movie.BLL.article();
+			Movie.DAL.article bll=new Movie.DAL.article();
 			bll.Update(model);
 			Maticsoft.Common.MessageBox.ShowAndRedirect(this,"保存成功！","list.aspx");
 

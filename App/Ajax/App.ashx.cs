@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
-using static Movie.Common.Enums;
+
 
 namespace App.Ajax
 {
@@ -28,6 +28,9 @@ namespace App.Ajax
             {
                 case "login":
                     GetUerInfo(context);
+                    break;
+                case "reg":
+                    GetUerReg(context);
                     break;
                 case "top":
                     GetTopInfo(context);
@@ -57,6 +60,50 @@ namespace App.Ajax
             }
         }
 
+        private void GetUerReg(HttpContext context)
+        {
+            JsonResponse<dynamic> result = new JsonResponse<dynamic>();
+            var username = context.Request["username"] ?? "";
+            var pwd = context.Request["password"] ?? "";
+            string where1 = string.Format("  uname ='{0}' ", username);
+            DataTable dt1 = _users.GetList(where1).Tables[0];
+            if (dt1 != null)
+            {
+                if (dt1.Rows.Count > 0)
+                {
+                    result.Code = Movie.Common.Enums.ResultStatus.Error;
+                    result.Message = "用户名称已经注册！";
+                    context.Response.Write(JsonConvert.SerializeObject(result));
+                    context.Response.End();
+                    return;
+                }
+            }
+
+            Movie.Model.users user = new users();
+            user.id = new Movie.DAL.usersdal().GetMaxId();
+            user.uname = username;
+            user.realname = username;
+            user.pwd = pwd;
+            bool bb=_users.Add(user);
+
+            result = new JsonResponse<dynamic>();
+            if(bb)
+            {
+                string where = string.Format("  uname ='{0}' and pwd = '{0}'", username, pwd);
+                DataTable dt  = _users.GetList(where).Tables[0];
+
+                result.Code = Movie.Common.Enums.ResultStatus.Success;
+                result.Data = dt;
+            }
+            else
+            {
+                result.Code = Movie.Common.Enums.ResultStatus.Error;
+                result.Message = "用户注册失败！";
+            }
+            context.Response.Write(JsonConvert.SerializeObject(result));
+            context.Response.End();
+        }
+
         private void AddScore(HttpContext context)
         {
             var article = new Movie.Model.article();
@@ -70,13 +117,13 @@ namespace App.Ajax
             topic.articleid = context.Request["id"];
             topic.usersid = context.Request["userid"];
             topic.contents = context.Request["contents"];
-            topic.addtime = DateTime.Now.ToString("yyyy-MM-dd");
+            topic.addtime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
             _articledal.UpdateScore(article);
 
             _articledal.Addtopic(topic);
             JsonResponse<dynamic> result = new JsonResponse<dynamic>();
-            result.Code = ResultStatus.Success;
+            result.Code = Movie.Common.Enums.ResultStatus.Success;
             context.Response.Write(JsonConvert.SerializeObject(result));
             context.Response.End();
         }
@@ -87,7 +134,7 @@ namespace App.Ajax
             var entity = _articledal.GetCommentList(" articleid = " + context.Request["id"] ?? "0");
             JsonResponse<dynamic> result = new JsonResponse<dynamic>();
             result.Data = entity;
-            result.Code = ResultStatus.Success;
+            result.Code = Movie.Common.Enums.ResultStatus.Success;
             context.Response.Write(JsonConvert.SerializeObject(result));
             context.Response.End();
         }
@@ -98,7 +145,7 @@ namespace App.Ajax
             var entity = _articledal.GetModel(id);
             JsonResponse<dynamic> result = new JsonResponse<dynamic>();
             result.Data = entity;
-            result.Code = ResultStatus.Success;
+            result.Code = Movie.Common.Enums.ResultStatus.Success;
             context.Response.Write(JsonConvert.SerializeObject(result));
             context.Response.End();
         }
@@ -108,7 +155,7 @@ namespace App.Ajax
             DataTable dt = _articledal.GetList(" cateid = '" + context.Request["cateid"] + "'").Tables[0];
             JsonResponse<dynamic> result = new JsonResponse<dynamic>();
             result.Data = dt;
-            result.Code = ResultStatus.Success;
+            result.Code = Movie.Common.Enums.ResultStatus.Success;
             context.Response.Write(JsonConvert.SerializeObject(result));
             context.Response.End();
         }
@@ -117,7 +164,7 @@ namespace App.Ajax
             DataTable dt = _catedal.GetList("").Tables[0];
             JsonResponse<dynamic> result = new JsonResponse<dynamic>();
             result.Data = dt;
-            result.Code = ResultStatus.Success;
+            result.Code = Movie.Common.Enums.ResultStatus.Success;
             context.Response.Write(JsonConvert.SerializeObject(result));
             context.Response.End();
         }
@@ -127,7 +174,7 @@ namespace App.Ajax
             DataTable dt = _articledal.GetList(" istop = '是'").Tables[0];
             JsonResponse<dynamic> result = new JsonResponse<dynamic>();
             result.Data = dt;
-            result.Code = ResultStatus.Success;
+            result.Code = Movie.Common.Enums.ResultStatus.Success;
             context.Response.Write(JsonConvert.SerializeObject(result));
             context.Response.End();
 
@@ -143,12 +190,12 @@ namespace App.Ajax
             JsonResponse<dynamic> result = new JsonResponse<dynamic>();
             if (dt.Rows.Count > 0)
             {
-                result.Code = ResultStatus.Success;
+                result.Code = Movie.Common.Enums.ResultStatus.Success;
                 result.Data = dt;
             }
             else
             {
-                result.Code = ResultStatus.Error;
+                result.Code = Movie.Common.Enums.ResultStatus.Error;
                 result.Message = "用户名或密码不存在~";
             }
             context.Response.Write(JsonConvert.SerializeObject(result));

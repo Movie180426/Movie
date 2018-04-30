@@ -29,9 +29,9 @@ namespace Movie.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from admins");
-			strSql.Append(" where id=SQL2012id ");
+			strSql.Append(" where id=@SQL2012id ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012id", SqlDbType.Int,4)			};
+					new SqlParameter("@SQL2012id", SqlDbType.Int,4)			};
 			parameters[0].Value = id;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -47,13 +47,13 @@ namespace Movie.DAL
 			strSql.Append("insert into admins(");
 			strSql.Append("id,uname,pwd,realname,contact)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012id,SQL2012uname,SQL2012pwd,SQL2012realname,SQL2012contact)");
+			strSql.Append("@SQL2012id,@SQL2012uname,@SQL2012pwd,@SQL2012realname,@SQL2012contact)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012id", SqlDbType.Int,4),
-					new SqlParameter("SQL2012uname", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012pwd", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012realname", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012contact", SqlDbType.VarChar,255)};
+					new SqlParameter("@SQL2012id", SqlDbType.Int,4),
+					new SqlParameter("@SQL2012uname", SqlDbType.VarChar,255),
+					new SqlParameter("@SQL2012pwd", SqlDbType.VarChar,255),
+					new SqlParameter("@SQL2012realname", SqlDbType.VarChar,255),
+					new SqlParameter("@SQL2012contact", SqlDbType.VarChar,255)};
 			parameters[0].Value = model.id;
 			parameters[1].Value = model.uname;
 			parameters[2].Value = model.pwd;
@@ -77,17 +77,17 @@ namespace Movie.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update admins set ");
-			strSql.Append("uname=SQL2012uname,");
-			strSql.Append("pwd=SQL2012pwd,");
-			strSql.Append("realname=SQL2012realname,");
-			strSql.Append("contact=SQL2012contact");
-			strSql.Append(" where id=SQL2012id ");
+			strSql.Append("uname=@SQL2012uname,");
+			strSql.Append("pwd=@SQL2012pwd,");
+			strSql.Append("realname=@SQL2012realname,");
+			strSql.Append("contact=@SQL2012contact");
+			strSql.Append(" where id=@SQL2012id ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012uname", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012pwd", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012realname", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012contact", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012id", SqlDbType.Int,4)};
+					new SqlParameter("@SQL2012uname", SqlDbType.VarChar,255),
+					new SqlParameter("@SQL2012pwd", SqlDbType.VarChar,255),
+					new SqlParameter("@SQL2012realname", SqlDbType.VarChar,255),
+					new SqlParameter("@SQL2012contact", SqlDbType.VarChar,255),
+					new SqlParameter("@SQL2012id", SqlDbType.Int,4)};
 			parameters[0].Value = model.uname;
 			parameters[1].Value = model.pwd;
 			parameters[2].Value = model.realname;
@@ -113,9 +113,9 @@ namespace Movie.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from admins ");
-			strSql.Append(" where id=SQL2012id ");
+			strSql.Append(" where id=@SQL2012id ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012id", SqlDbType.Int,4)			};
+					new SqlParameter("@SQL2012id", SqlDbType.Int,4)			};
 			parameters[0].Value = id;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -156,9 +156,9 @@ namespace Movie.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 id,uname,pwd,realname,contact from admins ");
-			strSql.Append(" where id=SQL2012id ");
+			strSql.Append(" where id=@SQL2012id ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012id", SqlDbType.Int,4)			};
+					new SqlParameter("@SQL2012id", SqlDbType.Int,4)			};
 			parameters[0].Value = id;
 
 			Movie.Model.admins model=new Movie.Model.admins();
@@ -319,10 +319,11 @@ namespace Movie.DAL
         /// <summary>
         /// 管理员登录
         /// </summary>
-        public bool AdminLogin(string adminName, string password)
+        public Model.admins AdminLogin(string adminName, string password)
         {
+            Model.admins admin = null;
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select count(1) from admins");
+            strSql.Append("select top 1 * from admins");
             strSql.Append(" where uname=@adminName and pwd=@password ");
             SqlParameter[] parameters = {
 					new SqlParameter("@adminName", SqlDbType.VarChar,255),
@@ -330,7 +331,13 @@ namespace Movie.DAL
                                         };
             parameters[0].Value = adminName;
             parameters[1].Value = password;
-            return DbHelperSQL.Exists(strSql.ToString(), parameters);
+            DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
+            if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                DAL.admins dal = new admins();
+                admin = dal.DataRowToModel(ds.Tables[0].Rows[0]);
+            }
+            return admin;
         }
 		#endregion  ExtensionMethod
 	}

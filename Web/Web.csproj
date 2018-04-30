@@ -60,6 +60,10 @@
       <HintPath>..\Lib\Microsoft.Web.UI.WebControls.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\App\bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -80,6 +84,8 @@
     <Content Include="Admin\editpwd.aspx" />
     <Content Include="Admin\Index.aspx" />
     <Content Include="Admin\js\editpwd.js" />
+    <Content Include="Admin\js\jquery-1.4.1.js" />
+    <Content Include="Admin\js\jquery.form.js" />
     <Content Include="Admin\js\listadmin.js" />
     <Content Include="Admin\js\listarticle.js" />
     <Content Include="Admin\js\listcate.js" />
@@ -94,7 +100,162 @@
     <Content Include="Admin\listvote.aspx" />
     <Content Include="Admin\Login.aspx" />
     <Content Include="Admin\User.aspx" />
+    <Content Include="AppWeb\Comment.html" />
+    <Content Include="AppWeb\css\app.css" />
+    <Content Include="AppWeb\css\bootstrap.min.css" />
+    <Content Include="AppWeb\css\font-awesome.min.css" />
+    <Content Include="AppWeb\css\iconfont.css" />
+    <Content Include="AppWeb\css\mui.min.css" />
+    <Content Include="AppWeb\css\nprogress.css" />
+    <Content Include="AppWeb\css\style.css" />
+    <Content Include="AppWeb\css\swiper.min.css" />
+    <Content Include="AppWeb\demo\css\application.css" />
+    <Content Include="AppWeb\demo\css\common.css" />
+    <Content Include="AppWeb\demo\css\demo.css" />
+    <Content Include="AppWeb\demo\css\font-awesome.css" />
+    <Content Include="AppWeb\demo\css\normalize.css" />
+    <Content Include="AppWeb\demo\css\pygments.css" />
+    <Content Include="AppWeb\demo\img\0.png" />
+    <Content Include="AppWeb\demo\img\1.png" />
+    <Content Include="AppWeb\demo\img\2.png" />
+    <Content Include="AppWeb\demo\img\3.png" />
+    <Content Include="AppWeb\demo\img\4.png" />
+    <Content Include="AppWeb\demo\img\5.png" />
+    <Content Include="AppWeb\demo\img\cancel-custom-off.png" />
+    <Content Include="AppWeb\demo\img\cancel-custom-on.png" />
+    <Content Include="AppWeb\demo\img\cancel-off-big.png" />
+    <Content Include="AppWeb\demo\img\cancel-on-big.png" />
+    <Content Include="AppWeb\demo\img\cookie-half.png" />
+    <Content Include="AppWeb\demo\img\cookie-off.png" />
+    <Content Include="AppWeb\demo\img\cookie-on.png" />
+    <Content Include="AppWeb\demo\img\off.png" />
+    <Content Include="AppWeb\demo\img\on.png" />
+    <Content Include="AppWeb\demo\img\star-half-big.png" />
+    <Content Include="AppWeb\demo\img\star-off-big.png" />
+    <Content Include="AppWeb\demo\img\star-on-big.png" />
+    <Content Include="AppWeb\demo\js\jquery.min.js" />
+    <Content Include="AppWeb\images\60x60.gif" />
+    <Content Include="AppWeb\images\cbd.jpg" />
+    <Content Include="AppWeb\images\login-1.png" />
+    <Content Include="AppWeb\images\logo.png" />
+    <Content Include="AppWeb\images\muwu.jpg" />
+    <Content Include="AppWeb\images\qrcode.png" />
+    <Content Include="AppWeb\images\shuijiao.jpg" />
+    <Content Include="AppWeb\images\yuantiao.jpg" />
+    <Content Include="AppWeb\img\60x60.gif" />
+    <Content Include="AppWeb\img\ab.png" />
+    <Content Include="AppWeb\img\as.png" />
+    <Content Include="AppWeb\img\bejing.png" />
+    <Content Include="AppWeb\img\cbd.jpg" />
+    <Content Include="AppWeb\img\ec-icon.png" />
+    <Content Include="AppWeb\img\head-bg.png" />
+    <Content Include="AppWeb\img\heart_03.png" />
+    <Content Include="AppWeb\img\iconall.png" />
+    <Content Include="AppWeb\img\iconfont-gou.png" />
+    <Content Include="AppWeb\img\iconfont-xiao1.png" />
+    <Content Include="AppWeb\img\login-1.png" />
+    <Content Include="AppWeb\img\logo.png" />
+    <Content Include="AppWeb\img\mall\heart_gray.png" />
+    <Content Include="AppWeb\img\mall\heart_red.png" />
+    <Content Include="AppWeb\img\mall\mall1_1.jpg" />
+    <Content Include="AppWeb\img\mall\mall1_2.jpg" />
+    <Content Include="AppWeb\img\mall\mall1_3.jpg" />
+    <Content Include="AppWeb\img\mall\mall1_4.jpg" />
+    <Content Include="AppWeb\img\mall\mall1_5.jpg" />
+    <Content Include="AppWeb\img\mall\mall1_6.jpg" />
+    <Content Include="AppWeb\img\mall\mall2_1.jpg" />
+    <Content Include="AppWeb\img\mall\mall2_2.jpg" />
+    <Content Include="AppWeb\img\mall\mall2_3.jpg" />
+    <Content Include="AppWeb\img\mall\mall3_1.jpg" />
+    <Content Include="AppWeb\img\mall\mall3_2.jpg" />
+    <Content Include="AppWeb\img\mall\mall3_3.jpg" />
+    <Content Include="AppWeb\img\mall\mall3_4.jpg" />
+    <Content Include="AppWeb\img\mall\mall3_5.jpg" />
+    <Content Include="AppWeb\img\mall\mall4_1.jpg" />
+    <Content Include="AppWeb\img\mall\mall4_2.jpg" />
+    <Content Include="AppWeb\img\mall\mall4_3.jpg" />
+    <Content Include="AppWeb\img\mall\mall5_1.jpg" />
+    <Content Include="AppWeb\img\mall\mall5_2.jpg" />
+    <Content Include="AppWeb\img\mall\mall5_3.jpg" />
+    <Content Include="AppWeb\img\mall\mall5_4.jpg" />
+    <Content Include="AppWeb\img\mall\mall5_5.jpg" />
+    <Content Include="AppWeb\img\muwu.jpg" />
+    <Content Include="AppWeb\img\pur-bg.png" />
+    <Content Include="AppWeb\img\qrcode.png" />
+    <Content Include="AppWeb\img\shuijiao.jpg" />
+    <Content Include="AppWeb\img\weixin%281%29.png" />
+    <Content Include="AppWeb\img\weixin.png" />
+    <Content Include="AppWeb\img\yuantiao.jpg" />
+    <Content Include="AppWeb\Index.html" />
+    <Content Include="AppWeb\js\app.js" />
+    <Content Include="AppWeb\js\bootstrap.min.js" />
+    <Content Include="AppWeb\js\comment.js" />
+    <Content Include="AppWeb\js\common.js" />
+    <Content Include="AppWeb\js\index.js" />
+    <Content Include="AppWeb\js\jquery.json.js" />
+    <Content Include="AppWeb\js\jquery.min.js" />
+    <Content Include="AppWeb\js\jquery.more.js" />
+    <Content Include="AppWeb\js\jquery.pjax.js" />
+    <Content Include="AppWeb\js\jquery.scrollUp.min.js" />
+    <Content Include="AppWeb\js\jquery.swiper.min.js" />
+    <Content Include="AppWeb\js\mui.min.js" />
+    <Content Include="AppWeb\js\nprogress.js" />
+    <Content Include="AppWeb\js\utils.js" />
+    <Content Include="AppWeb\js\validform.js" />
+    <Content Include="AppWeb\lib\img\cancel-off.png" />
+    <Content Include="AppWeb\lib\img\cancel-on.png" />
+    <Content Include="AppWeb\lib\img\star-half.png" />
+    <Content Include="AppWeb\lib\img\star-off.png" />
+    <Content Include="AppWeb\lib\img\star-on.png" />
+    <Content Include="AppWeb\lib\jquery.raty.js" />
+    <Content Include="AppWeb\lib\jquery.raty.min.js" />
+    <Content Include="AppWeb\login.html" />
+    <Content Include="AppWeb\register.html" />
+    <Content Include="article\Add.aspx" />
+    <Content Include="article\List.aspx" />
+    <Content Include="article\Modify.aspx" />
+    <Content Include="article\Show.aspx" />
     <Content Include="Cate.aspx" />
+    <Content Include="Content\css\four.css" />
+    <Content Include="Content\img\bg.gif" />
+    <Content Include="Content\img\bottom_bg.gif" />
+    <Content Include="Content\img\drop.gif" />
+    <Content Include="Content\img\dtree.js" />
+    <Content Include="Content\img\edit.gif" />
+    <Content Include="Content\img\four.css" />
+    <Content Include="Content\img\left\base.gif" />
+    <Content Include="Content\img\left\empty.gif" />
+    <Content Include="Content\img\left\folder.gif" />
+    <Content Include="Content\img\left\folder2.gif" />
+    <Content Include="Content\img\left\folderopen.gif" />
+    <Content Include="Content\img\left\folderopen2.gif" />
+    <Content Include="Content\img\left\join.gif" />
+    <Content Include="Content\img\left\joinbottom.gif" />
+    <Content Include="Content\img\left\line.gif" />
+    <Content Include="Content\img\left\minus.gif" />
+    <Content Include="Content\img\left\minusbottom.gif" />
+    <Content Include="Content\img\left\nolines_minus.gif" />
+    <Content Include="Content\img\left\nolines_plus.gif" />
+    <Content Include="Content\img\left\page.gif" />
+    <Content Include="Content\img\left\plus.gif" />
+    <Content Include="Content\img\left\plusbottom.gif" />
+    <Content Include="Content\img\left\user.gif" />
+    <Content Include="Content\img\login.gif" />
+    <Content Include="Content\img\loginbg.png" />
+    <Content Include="Content\img\login_b.png" />
+    <Content Include="Content\img\login_top.jpg" />
+    <Content Include="Content\img\logo.gif" />
+    <Content Include="Content\img\main.css" />
+    <Content Include="Content\img\msg_new.gif" />
+    <Content Include="Content\img\msg_old.gif" />
+    <Content Include="Content\img\table.gif" />
+    <Content Include="Content\img\table_header.gif" />
+    <Content Include="Content\img\top_back.gif" />
+    <Content Include="Content\img\top_bg.gif" />
+    <Content Include="Content\img\view.gif" />
+    <Content Include="Content\img\view_detailed.gif" />
+    <Content Include="Content\img\view_tree.gif" />
+    <Content Include="Content\img\vote.jpg" />
     <Content Include="context.aspx" />
     <Content Include="Contnt\img\loginbg.png" />
     <Content Include="Contnt\img\login_b.png" />
@@ -107,6 +268,7 @@
     <Content Include="Index.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Register.aspx" />
+    <Content Include="Scripts\dtree.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-easyui-1.4.4\changelog.txt" />
     <Content Include="Scripts\jquery-easyui-1.4.4\datagrid-cellediting.js" />
@@ -1600,6 +1762,37 @@
     <Compile Include="Admin\User.aspx.designer.cs">
       <DependentUpon>User.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AppWeb\Ajax\App.ashx.cs">
+      <DependentUpon>App.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="article\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="article\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="article\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="article\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="article\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="article\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="article\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="article\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Cate.aspx.cs">
       <DependentUpon>Cate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1619,6 +1812,9 @@
     </Compile>
     <Compile Include="Controler\article.ashx.cs">
       <DependentUpon>article.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Controler\article1.ashx.cs">
+      <DependentUpon>article1.ashx</DependentUpon>
     </Compile>
     <Compile Include="Controler\BaseHandler.ashx.cs">
       <DependentUpon>BaseHandler.ashx</DependentUpon>
@@ -1739,6 +1935,10 @@
       <Project>{9fe00521-3a8b-42b1-814e-585e99407b2e}</Project>
       <Name>DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DBUtility\DBUtility.csproj">
+      <Project>{0988c62e-247f-471f-a183-db509c7a3839}</Project>
+      <Name>DBUtility</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{53995DBB-9836-4647-AD22-865884FDEB9E}</Project>
       <Name>Model</Name>
@@ -1749,6 +1949,7 @@
     <Content Include="ValidateCode.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="AppWeb\Index\" />
     <Folder Include="Components\" />
     <Folder Include="Contnt\css\" />
     <Folder Include="Images\" />
@@ -1776,6 +1977,20 @@
     <Content Include="Controler\grid.ashx" />
     <Content Include="Controler\user.ashx" />
     <Content Include="Controler\vote.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AppWeb\Ajax\App.ashx" />
+    <Content Include="AppWeb\demo\font\fontawesome-webfont.ttf" />
+    <Content Include="AppWeb\File\13241.rar" />
+    <Content Include="AppWeb\fonts\mui-icons-extra.ttf" />
+    <Content Include="AppWeb\fonts\mui.ttf" />
+    <Content Include="AppWeb\font\fontawesome-webfont.woff" />
+    <Content Include="AppWeb\font\iconfont.woff" />
+    <Content Include="AppWeb\font\mui-icons-extra.ttf" />
+    <Content Include="AppWeb\font\mui.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controler\article1.ashx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

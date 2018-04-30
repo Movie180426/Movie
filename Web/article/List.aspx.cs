@@ -15,7 +15,7 @@ namespace Movie.Web.article
         
         
         
-		Movie.BLL.article bll = new Movie.BLL.article();
+		//Movie.BLL.article bll = new Movie.BLL.article();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -35,11 +35,11 @@ namespace Movie.Web.article
         
         protected void btnDelete_Click(object sender, EventArgs e)
         {
-            string idlist = GetSelIDlist();
-            if (idlist.Trim().Length == 0) 
-                return;
-            bll.DeleteList(idlist);
-            BindData();
+            //string idlist = GetSelIDlist();
+            //if (idlist.Trim().Length == 0) 
+            //    return;
+            //bll.DeleteList(idlist);
+            //BindData();
         }
         
         #region gridView
@@ -62,16 +62,16 @@ namespace Movie.Web.article
             //}
             #endregion
 
-            DataSet ds = new DataSet();
-            StringBuilder strWhere = new StringBuilder();
-            if (txtKeyword.Text.Trim() != "")
-            {      
-                #warning 代码生成警告：请修改 keywordField 为需要匹配查询的真实字段名称
-                //strWhere.AppendFormat("keywordField like '%{0}%'", txtKeyword.Text.Trim());
-            }            
-            ds = bll.GetList(strWhere.ToString());            
-            gridView.DataSource = ds;
-            gridView.DataBind();
+            //DataSet ds = new DataSet();
+            //StringBuilder strWhere = new StringBuilder();
+            //if (txtKeyword.Text.Trim() != "")
+            //{      
+            //    #warning 代码生成警告：请修改 keywordField 为需要匹配查询的真实字段名称
+            //    //strWhere.AppendFormat("keywordField like '%{0}%'", txtKeyword.Text.Trim());
+            //}            
+            //ds = bll.GetList(strWhere.ToString());            
+            //gridView.DataSource = ds;
+            //gridView.DataBind();
         }
 
         protected void gridView_PageIndexChanging(object sender, GridViewPageEventArgs e)

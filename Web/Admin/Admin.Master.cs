@@ -9,9 +9,15 @@ namespace Movie.Web.Admin
 {
     public partial class Admin : System.Web.UI.MasterPage
     {
-       public  Movie.Model.admins model = (Movie.Model.admins)HttpContext.Current.Session["User"];
+       public  Movie.Model.admins model =null;
         protected void Page_Load(object sender, EventArgs e)
         {
+            try
+            {
+                model = (Movie.Model.admins)HttpContext.Current.Session["User"];
+            }
+            catch { }
+            finally { }
             if (model == null)
                 HttpContext.Current.Response.Redirect("/Admin/Login.aspx", true);
         }

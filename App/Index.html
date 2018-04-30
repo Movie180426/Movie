@@ -376,7 +376,7 @@
                         </ul>
                         <ul class="mui-table-view">
                             <li class="mui-table-view-cell" style="text-align: center;" onclick="window.location.href='login.html'">
-                                <a>退出登录</a>
+                                <a href="login.html" onclick="exit(); return false;">退出登录</a>
                             </li>
                         </ul>
                     </div>
@@ -396,7 +396,24 @@
     });
 
     
+    function exit() {
+        var exp = new Date();
+        exp.setTime(exp.getTime() - 1);
+        var cval = MovieCommon.getUrlParam("userid"); 
+        if (cval != null)
+            document.cookie = "userid=" + cval + ";expires=" + exp.toGMTString();
 
+        cval = MovieCommon.getUrlParam("userid");
+        if (cval != null)
+            document.cookie = "username=" + cval + ";expires=" + exp.toGMTString();
+    }
+    function delCookie(name) {
+        var exp = new Date();
+        exp.setTime(exp.getTime() - 1);
+        var cval = getCookie(name);
+        if (cval != null)
+            document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString();
+    }
     (function ($) {
         $('#scroll').scroll({
             indicators: true //是否显示滚动条

@@ -120,7 +120,10 @@
                 </p> -->
                 <div class=" ect-padding-tb">
                     <button type="button" id="smt" class="btn-submit" value="">立即登录</button>
-                </div>
+                    <div class="link-area">
+                        <a href="register.html">注册账号</a><span class="spliter">|</span> <a href="index.html">首页</a>
+ 
+                    </div>
             </form>
         </div>
     </div>
@@ -138,7 +141,11 @@
                     if (msg.Code == "1") {
                         var data = msg.Data[0]["uname"];
                         var userid = msg.Data[0]["id"];
-
+                        var Days = 2;
+                        var exp = new Date();
+                        exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+                        document.cookie = "userid=" + escape(userid) + ";expires=" + exp.toGMTString();
+                        document.cookie = "username=" + escape(data) + ";expires=" + exp.toGMTString();
                         window.location.href = "index.html?username=" + data + "&userid=" + userid;
                     } else {
                         mui.toast(msg.Message);

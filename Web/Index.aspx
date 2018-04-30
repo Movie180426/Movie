@@ -20,8 +20,9 @@
     <div>
         <div class="body-top">
             <div class="content">
-                <% if (user != null)
-                   { %>
+                <% 
+                    if (user != null)
+                   {  %>
 欢迎您: <%= user.uname %> <% } %>
             </div>
         </div>
@@ -36,7 +37,7 @@
                     <ul class="nav-site">
                         <li><a href="index.aspx"><span>首页</span> </a></li>
                         <%
-                            System.Data.DataTable dt = dtCate;
+                            System.Data.DataTable dt = new Movie.DAL.cate().GetList("").Tables[0]; ;
                             foreach (System.Data.DataRow drX in dt.Rows)
                             {
                                 string sID = drX["id"].ToString();
@@ -176,7 +177,7 @@
                             foreach (DataRow drX in dt.Rows)
                             { %>
                         <li>
-                            <a href="context.aspx?id=<%=drX["id"].ToString() %>>" target="_blank"><%=drX["title"].ToString() %></a>
+                            <a href="context.aspx?id=<%=drX["id"].ToString() %>" target="_blank"><%=drX["title"].ToString() %></a>
                         </li>
                         <%
                             }

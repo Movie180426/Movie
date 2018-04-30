@@ -29,9 +29,9 @@ namespace Movie.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from cate");
-			strSql.Append(" where id=SQL2012id ");
+			strSql.Append(" where id=@SQL2012id ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012id", SqlDbType.Int,4)			};
+					new SqlParameter("@SQL2012id", SqlDbType.Int,4)			};
 			parameters[0].Value = id;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -47,10 +47,10 @@ namespace Movie.DAL
 			strSql.Append("insert into cate(");
 			strSql.Append("id,catename)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012id,SQL2012catename)");
+			strSql.Append("@SQL2012id,@SQL2012catename)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012id", SqlDbType.Int,4),
-					new SqlParameter("SQL2012catename", SqlDbType.VarChar,255)};
+					new SqlParameter("@SQL2012id", SqlDbType.Int,4),
+					new SqlParameter("@SQL2012catename", SqlDbType.VarChar,255)};
 			parameters[0].Value = model.id;
 			parameters[1].Value = model.catename;
 
@@ -71,11 +71,11 @@ namespace Movie.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update cate set ");
-			strSql.Append("catename=SQL2012catename");
-			strSql.Append(" where id=SQL2012id ");
+			strSql.Append("catename=@SQL2012catename");
+			strSql.Append(" where id=@SQL2012id ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012catename", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012id", SqlDbType.Int,4)};
+					new SqlParameter("@SQL2012catename", SqlDbType.VarChar,255),
+					new SqlParameter("@SQL2012id", SqlDbType.Int,4)};
 			parameters[0].Value = model.catename;
 			parameters[1].Value = model.id;
 
@@ -98,9 +98,9 @@ namespace Movie.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from cate ");
-			strSql.Append(" where id=SQL2012id ");
+			strSql.Append(" where id=@SQL2012id ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012id", SqlDbType.Int,4)			};
+					new SqlParameter("@SQL2012id", SqlDbType.Int,4)			};
 			parameters[0].Value = id;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -141,9 +141,9 @@ namespace Movie.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 id,catename from cate ");
-			strSql.Append(" where id=SQL2012id ");
+			strSql.Append(" where id=@SQL2012id ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012id", SqlDbType.Int,4)			};
+					new SqlParameter("@SQL2012id", SqlDbType.Int,4)			};
 			parameters[0].Value = id;
 
 			Movie.Model.cate model=new Movie.Model.cate();

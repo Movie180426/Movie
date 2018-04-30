@@ -50,7 +50,7 @@ namespace Movie.DAL
                     jsonBuilder.Append("\"");
                     jsonBuilder.Append(dt.Columns[j].ColumnName);
                     jsonBuilder.Append("\":\"");
-                    jsonBuilder.Append(dt.Rows[i][j].ToString());
+                    jsonBuilder.Append(dt.Rows[i][j].ToString().Replace("\"", "").Replace("'", ""));
                     jsonBuilder.Append("\",");
                 }
                 if (dt.Columns.Count > 0)

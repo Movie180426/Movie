@@ -50,8 +50,8 @@ namespace Movie.Web
                  HttpContext.Current.Session.Add("User", user);
                  context.Response.Redirect("index.aspx");
              }
-             else { 
-
+             else {
+                 context.Response.Redirect("login.aspx?log=false");
              }
             return "";
         }

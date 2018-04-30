@@ -48,7 +48,7 @@
                             { 
                         %>
                         <li class="line">|</li>
-                        <li><a href="reg.aspx"><span>用户注册</span> </a></li>
+                        <li><a href="register.aspx"><span>用户注册</span> </a></li>
                         <li class="line">|</li>
                         <li><a href="login.aspx"><span>用户登录</span> </a></li>
                         <% }

@@ -81,7 +81,7 @@ namespace Movie.Web.article
 			model.isimage=isimage;
 			model.addtime=addtime;
 
-			Movie.BLL.article bll=new Movie.BLL.article();
+			Movie.DAL.article bll=new Movie.DAL.article();
 			bll.Add(model);
 			Maticsoft.Common.MessageBox.ShowAndRedirect(this,"保存成功！","add.aspx");
 

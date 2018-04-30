@@ -21,7 +21,7 @@ namespace Movie.Web.Admin
         protected void btnLogin1_Click(object sender, EventArgs e)
         {
             DAL.admins dal = new DAL.admins();
-            Model.admins model=dal.AdminLogin(txtName.Text, txtPassWord.Text);
+            Model.admins model = dal.AdminLogin(txtName.Text, txtPassWord.Text);
             if (model==null)
                 ShowMessage("用户名或密码错误，请重新登录");
             else

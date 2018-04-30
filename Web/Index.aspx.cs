@@ -11,12 +11,12 @@ namespace Movie.Web
 {
     public partial class Index : System.Web.UI.Page
     {
-        public Model.users user = null;
+       public Movie.Model.users user = null;
         public DataTable dtCate = null;
         public DataTable dtTop = null;
         public DataTable dtImg = null;
         public cate dalCate = new cate();
-        public article dalArticle = new article();
+        public Movie.DAL.article dalArticle = new Movie.DAL.article();
         protected void Page_Load(object sender, EventArgs e)
         {
             dtCate = dalCate.GetList("").Tables[0];
@@ -24,7 +24,14 @@ namespace Movie.Web
             dtTop = dalArticle.GetList("").Tables[0];
             dtImg = dalArticle.GetList("").Tables[0];
             if (HttpContext.Current.Session["User"] != null)
-                user = (Model.users)(HttpContext.Current.Session["User"]);
+            {
+                try
+                {
+                    user = (Model.users)(HttpContext.Current.Session["User"]);
+                }
+                catch { }
+                finally { }
+            }
         }
     }
 }

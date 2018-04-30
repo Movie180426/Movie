@@ -22,7 +22,7 @@
             });
         }
     });
-  
+
 });
 
 
@@ -44,7 +44,7 @@ var mygrid = {
                 { title: '类别', field: 'catename', width: 80 },
                 { title: '图片', field: 'image', width: 200 },
                 { title: '评分', field: 'score', width: 50 },
-                { title: '评分人数', field: 'scorenum', width: 80},
+                { title: '评分人数', field: 'scorenum', width: 80 },
                 { title: '是否置顶', field: 'istop', width: 80 },
                 { title: '是否轮播', field: 'isimage', width: 80 },
                 { title: '发布日期', field: 'addtime', width: 100 },
@@ -84,29 +84,48 @@ var mygrid = {
             buttons: [{
                 text: '确定',
                 handler: function () {
-                    if (!$('#addform').form('validate'))
-                        return;
-                    $.ajax({
-                        type: "GET",
-                        url: "../Controler/article.ashx?action=AddArticle",
-                        data: $('#addform').serialize(),
-                        dataType: "json",
+                    var frmConfig = $('#addform');
+                    frmConfig.form('submit', {
+                        url: "../Controler/article1.ashx?action=AddArticle",
                         success: function (data) {
-                            if (data.result == 'success') {
+                            data = eval('[' + data + ']');
+                            if (data[0].result == 'success') {
                                 $('#dataadd').dialog('close');
                                 mygrid.gridBind();
                             }
                             else {
                                 $.messager.show({
                                     title: '添加电影内容',
-                                    msg: data.message,
+                                    msg: data[0].message,
                                     timeout: 2000,
                                     showType: 'slide'
                                 });
                             }
-
                         }
                     });
+                    //if (!$('#addform').form('validate'))
+                    //    return;
+                    //$.ajax({
+                    //    type: "GET",
+                    //    url: "../Controler/article.ashx?action=AddArticle",
+                    //    data: $('#addform').serialize(),
+                    //    dataType: "json",
+                    //    success: function (data) {
+                    //        if (data.result == 'success') {
+                    //            $('#dataadd').dialog('close');
+                    //            mygrid.gridBind();
+                    //        }
+                    //        else {
+                    //            $.messager.show({
+                    //                title: '添加电影内容',
+                    //                msg: data.message,
+                    //                timeout: 2000,
+                    //                showType: 'slide'
+                    //            });
+                    //        }
+
+                    //    }
+                    //});
                 }
             },
             {
@@ -124,10 +143,10 @@ var mygrid = {
         $("#edit_id").textbox('setValue', row.id);
         $("#edit_title").textbox('setValue', row.title);
         $("#edit_cateid").combobox('setValue', row.cateid);
-        $("#edit_image").textbox('setValue', row.image);
+        //$("#edit_image").textbox('setValue', row.image);
         $("#edit_contents").textbox('setValue', row.contents);
-        $("input:radio[name=istop][value='"+row.istop+"']").attr("checked", true);
-        $("input:radio[name=isimage][value='"+row.isimage+"']").attr("checked", true);
+        $("input:radio[name=istop][value='" + row.istop + "']").attr("checked", true);
+        $("input:radio[name=isimage][value='" + row.isimage + "']").attr("checked", true);
 
         $('#dataedit').show();
         $('#dataedit').dialog({
@@ -140,29 +159,48 @@ var mygrid = {
             buttons: [{
                 text: '确定',
                 handler: function () {
-                    if (!$('#editform').form('validate'))
-                        return;
-                    $.ajax({
-                        type: "GET",
-                        url: "../Controler/article.ashx?action=EditArticle",
-                        data: $('#editform').serialize(),
-                        dataType: "json",
+                    var frmConfig = $('#editform');
+                    frmConfig.form('submit', {
+                        url: "../Controler/article1.ashx?action=EditArticle",
                         success: function (data) {
-                            if (data.result == 'success') {
+                            data = eval('[' + data + ']');
+                            if (data[0].result == 'success') {
                                 $('#dataedit').dialog('close');
                                 mygrid.gridBind();
                             }
                             else {
                                 $.messager.show({
-                                    title: '编辑电影内容',
-                                    msg: data.message,
+                                    title: '添加电影内容',
+                                    msg: data[0].message,
                                     timeout: 2000,
                                     showType: 'slide'
                                 });
                             }
-
                         }
                     });
+                    //if (!$('#editform').form('validate'))
+                    //    return;
+                    //$.ajax({
+                    //    type: "GET",
+                    //    url: "../Controler/article.ashx?action=EditArticle",
+                    //    data: $('#editform').serialize(),
+                    //    dataType: "json",
+                    //    success: function (data) {
+                    //        if (data.result == 'success') {
+                    //            $('#dataedit').dialog('close');
+                    //            mygrid.gridBind();
+                    //        }
+                    //        else {
+                    //            $.messager.show({
+                    //                title: '编辑电影内容',
+                    //                msg: data.message,
+                    //                timeout: 2000,
+                    //                showType: 'slide'
+                    //            });
+                    //        }
+
+                    //    }
+                    //});
                 }
             },
             {

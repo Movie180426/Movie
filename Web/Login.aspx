@@ -458,6 +458,7 @@
             <span class="log"></span>
         </div>
     </div>
+    
     <div id="content">
         <h2>用户登录
         </h2>
@@ -497,5 +498,11 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        $(function () {
+            if (window.location.toString().indexOf("log=f")>0)
+                alert("用户或者密码不正确，请重新输入！")
+        });
+    </script>
 </body>
 </html>

@@ -29,9 +29,9 @@ namespace Movie.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from topic");
-			strSql.Append(" where id=SQL2012id ");
+			strSql.Append(" where id=@SQL2012id ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012id", SqlDbType.Int,4)			};
+					new SqlParameter("@SQL2012id", SqlDbType.Int,4)			};
 			parameters[0].Value = id;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -47,13 +47,13 @@ namespace Movie.DAL
 			strSql.Append("insert into topic(");
 			strSql.Append("id,usersid,articleid,contents,addtime)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012id,SQL2012usersid,SQL2012articleid,SQL2012contents,SQL2012addtime)");
+			strSql.Append("@SQL2012id,@SQL2012usersid,@SQL2012articleid,@SQL2012contents,@SQL2012addtime)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012id", SqlDbType.Int,4),
-					new SqlParameter("SQL2012usersid", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012articleid", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012contents", SqlDbType.Text),
-					new SqlParameter("SQL2012addtime", SqlDbType.VarChar,255)};
+					new SqlParameter("@SQL2012id", SqlDbType.Int,4),
+					new SqlParameter("@SQL2012usersid", SqlDbType.VarChar,255),
+					new SqlParameter("@SQL2012articleid", SqlDbType.VarChar,255),
+					new SqlParameter("@SQL2012contents", SqlDbType.Text),
+					new SqlParameter("@SQL2012addtime", SqlDbType.VarChar,255)};
 			parameters[0].Value = model.id;
 			parameters[1].Value = model.usersid;
 			parameters[2].Value = model.articleid;
@@ -77,17 +77,17 @@ namespace Movie.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update topic set ");
-			strSql.Append("usersid=SQL2012usersid,");
-			strSql.Append("articleid=SQL2012articleid,");
-			strSql.Append("contents=SQL2012contents,");
-			strSql.Append("addtime=SQL2012addtime");
-			strSql.Append(" where id=SQL2012id ");
+			strSql.Append("usersid=@SQL2012usersid,");
+			strSql.Append("articleid=@SQL2012articleid,");
+			strSql.Append("contents=@SQL2012contents,");
+			strSql.Append("addtime=@SQL2012addtime");
+			strSql.Append(" where id=@SQL2012id ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012usersid", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012articleid", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012contents", SqlDbType.Text),
-					new SqlParameter("SQL2012addtime", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012id", SqlDbType.Int,4)};
+					new SqlParameter("@SQL2012usersid", SqlDbType.VarChar,255),
+					new SqlParameter("@SQL2012articleid", SqlDbType.VarChar,255),
+					new SqlParameter("@SQL2012contents", SqlDbType.Text),
+					new SqlParameter("@SQL2012addtime", SqlDbType.VarChar,255),
+					new SqlParameter("@SQL2012id", SqlDbType.Int,4)};
 			parameters[0].Value = model.usersid;
 			parameters[1].Value = model.articleid;
 			parameters[2].Value = model.contents;
@@ -113,9 +113,9 @@ namespace Movie.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from topic ");
-			strSql.Append(" where id=SQL2012id ");
+			strSql.Append(" where id=@SQL2012id ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012id", SqlDbType.Int,4)			};
+					new SqlParameter("@SQL2012id", SqlDbType.Int,4)			};
 			parameters[0].Value = id;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -156,9 +156,9 @@ namespace Movie.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 id,usersid,articleid,contents,addtime from topic ");
-			strSql.Append(" where id=SQL2012id ");
+			strSql.Append(" where id=@SQL2012id ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012id", SqlDbType.Int,4)			};
+					new SqlParameter("@SQL2012id", SqlDbType.Int,4)			};
 			parameters[0].Value = id;
 
 			Movie.Model.topic model=new Movie.Model.topic();

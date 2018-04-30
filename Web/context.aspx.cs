@@ -13,7 +13,7 @@ namespace Movie.Web
     {
         public Model.users user = null;
         public DataTable dtCate = null;
-        public article dalArticle = new article();
+        public Movie.DAL.article dalArticle = new Movie.DAL.article();
         public topic dalTopic = new topic();
         public cate dalCate = new cate();
         protected void Page_Load(object sender, EventArgs e)

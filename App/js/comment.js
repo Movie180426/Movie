@@ -4,10 +4,10 @@
     _u.list = {
         init: function () {
             var userid = MovieCommon.getUrlParam("userid");
-            if (userid == null || userid == "") {
-                window.location.href = "login.html";
-                return false;
-            }
+            //if (userid == null || userid == "") {
+            //    window.location.href = "login.html";
+            //    return false;
+            //}
             _u.list.getinfo(MovieCommon.getUrlParam("id"));
             _u.comment.init();
             $("#smt").unbind().on("click", function () {
@@ -59,7 +59,7 @@
                    if (msg.Code == 1) {
                        $("span[name='title']").text(msg.Data["title"]);
                        if (parseInt(msg.Data["scorenum"]) > 0) {
-                           $("span[name='score']").text((parseInt(msg.Data["score"]) / parseInt(msg.Data["scorenum"])) + "分");
+                           $("span[name='score']").text((parseInt(msg.Data["score"]) / parseInt(msg.Data["scorenum"])).toFixed(1) + "分");
                        } else {
                            $("span[name='score']").text("0分");
                        }
@@ -96,8 +96,8 @@
                            html += ' <div class="mui-card">';
                            html += '  <div class="mui-card-header mui-card-media">';
                            html += ' <div class="mui-media-body">';
-                           html += ' ' + data[i]["realname"] + '';
-                           html += '  <p>发表于 ' + data[i]["addtime"] + '</p>';
+                           html += ' <p>用户：' + data[i]["realname"] + '</p>';
+                           html += '  <p>发表于： ' + data[i]["addtime"] + '</p>';
                            html += '  </div>';
                            html += '  </div>';
                            html += ' <div class="mui-card-content" style="margin:5px">';
